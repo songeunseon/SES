@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 랜덤범위1~100, 무한루프 사용
+        // 랜덤 값 중에서 4의 배수의 값이 10개가 나오면 무한루프중지
+/*
+        var count = 0;
+        while(true){
+            var num=Math.floor(Math.random()*100)+1;
+            if(num%4==0){
+                document.write("숫자:"+num+"<br>");
+                count++;
+            }
+            if(num%4!=0){
+                document.write("실패<br>");    
+            }
+            if(count==10){
+                break;
+            }
+        }
+*/
+        //10번을 반복하기
+        //반복문안에서 정수를 입력하고, 입력한 정수 출력하기
+/*
+        for(var i=1; i<=10; i++){
+            var num=prompt("정수를 입력해라");
+            document.write(num+"<br>");
+        }
+*/
+        //문제1 숫자야구게임
+        //랜덤값으로 3개의 숫자 뽑아내기(단,3개의 숫자는 중복아님)
+        //랜덤범위는 1~9
+        //랜덤숫자는 3개를 맞출때까지 계속하기
+        //3개의 숫자를 입력합니다.
+        //랜덤 숫자가 2 3 1  이고
+        //1입력 2입력 3입력 했다면 0스트라이크 3볼 0아웃이라고 출력
+        //3입력 9입력 6입력 했다면 0스트라이크 1볼 2아웃이라고 출력
+        //5입력 3입력 8입력 했다면 1스트라이크 2볼 0아웃이라고 출력
+        //자리와 숫자가 일치하면 스트라이크 자리가 다르고 숫자만 있다면, 볼
+        //없는 숫자는 아웃
+
+        //문제2 베스킨 라빈스 31
+        //컴퓨터와 1대1게임
+        //숫자 몇개 낼것인지 입력
+        //2라고 입력했다면 자동으로 1 2라고 출력 되어야함
+        //그 다음 컴퓨터가 몇개 낼것인지 랜덤으로 정하기
+        //3이라고 나왔다면 자동으로 3 4 5라고 출력
+        //31이 나오는 쪽이 패배
+        /*
+        var a=0; b=0; c=0;
+        while(a==b || a==c || b==c){
+        var a=Math.floor(Math.random()*9)+1;
+        var b=Math.floor(Math.random()*9)+1;
+        var c=Math.floor(Math.random()*9)+1;
+        }
+        var result="";
+        while(true){
+            var str=0; b=0;
+            var u1=parseInt(prompt("1~9"));
+            var u2=parseInt(prompt("1~9"));
+            var u3=parseInt(prompt("1~9"));
+
+            alert(str+"스트라이크"+b+"볼"+out+"아웃");
+            if(u1==b || u3==c)b++;
+            if(u2==a || u3==c)b++;
+            if(u3==a || u2==b)b++;
+
+            if(u1==a)str++;
+            if(u2==b)str++;
+            if(u3==c)str++;
+
+            result+=u1+""+u2+""+u3+"\n"+str+"스트라이크"+b+"볼"+(3-str-b)+"아웃\n"
+            if(str==3)break;
+        }
+        */
+        //비밀번호 4개 숫자를 맞추세요.
+        //조건은 다음과 같다.
+        //1. 각 숫자는 1~9사이의 값이다.
+        //2. 4개 숫자는 중복이 없다.
+        //3. 1번째 숫자는 4번째 숫자보다 2만큼 크다.
+        //4. 2번째 숫자는 3번째 숫자 보다 작다.
+        //5. 비밀번호 숫자+비밀번호 역순 숫자의 합은 16896이다.
+        // 예) 비밀번호가 1234라면 1234+4321
+        // 위 조건에 해당하는 숫자 4개를 찾아주는 코드를 만드세요.
+
+        
+        for(var a=1; a<=9; a++){
+            for(var b=1; b<=9; b++){
+                for(var c=1; c<=9; c++){
+                    for(var d=1; d<=9; d++){
+                        if(a!=b && a!=c && a!=d && b!=c && b!=d && c!=d){
+                            if(a==d+2){
+                                if(b<c){
+                                    e=a*1000+b*100+c*10+d;
+                                    f=d*1000+c*100+b*10+a;
+                                    if(e+f==16896){
+                                        document.write(e);
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        
+        
+        
+        
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

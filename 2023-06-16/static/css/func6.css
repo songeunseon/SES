@@ -1,0 +1,35 @@
+.st{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+.start{
+    color: gold;
+    font-size: 30px;
+    padding: 20px 50px;
+    border:3px dotted gold;
+    border-radius: 30px;
+    background: black;
+}
+.start:hover{
+    background: silver;
+    color: black;
+}
+.ju{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.com{
+    margin: 50px 0;
+    font-size: 30px;
+    padding: 20px 50px;
+    border:3px dotted gold;
+    border-radius: 30px;
+}
+.me{
+    font-size: 30px;
+    padding: 20px 50px;
+    border:3px dotted gold;
+    border-radius: 30px;
+}

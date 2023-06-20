@@ -1,0 +1,183 @@
+#main_top{
+    display:flex;
+}
+.top_left{
+    width: 500px;
+    padding: 20px;
+}
+.top_left img{
+    width: 460px;
+}
+.top_right{
+    width: 500px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-between;
+}
+.item_title{
+    padding-bottom: 30px;
+    border-bottom: 1px solid #000;
+}
+.item_price{
+    flex-grow: 1;
+    padding-top: 30px; /*flex일땐 margin을 주면 주변 것들한테 영향을줌 flex일땐 padding으로 주기*/
+}
+.item_button button:first-child{
+    border:1px solid blue;
+    color:blue;
+    background: ivory;
+    width: 200px;
+    height: 50px;;
+}
+.item_button button:last-child{
+    background: blue;
+    border:1px solid blue;
+    color:ivory;
+    width: 200px;
+    height: 50px;
+}
+#main_content{
+    width: 1080px;
+}
+.content ul{
+    list-style-type: none;
+    width: 100%;
+    border-top:2px solid #555;
+    border-left:1px solid #ccc;
+    border-bottom:1px solid #ccc;;
+
+}
+.content ul li{
+    border-right:1px solid #ccc;
+    width: 24.61%; /*li가 4개니까 25%씩 가져라!*/
+    display: inline-block; /*list를 flex없이 한줄표현하는법*/
+    text-align: center;
+    padding: 15px 20px 14px 0;
+}
+.content ul li:first-child{
+    margin-bottom: -2px;
+    border-bottom:1px solid #fff;
+}
+.content_image{
+    width: 780px; /*margin 0 auto가 되려면 width가 지정되있어야함 + img의 display가 block이여야함 */
+    margin:50px auto;
+
+}
+#main_bottom{
+    margin-top:100px;
+    margin-bottom: 100px;
+    width: 1080px;
+    border-top: 2px solid #555;
+    padding-top:50px;
+    position: relative;
+}
+#main_bottom h3{
+    font-size: 25px;
+    margin:10px 0;
+}
+.review_guide{
+    margin-bottom: 20px;
+}
+.star_rating{
+    width: 304px;
+}
+.star_rating, .star_rating span{
+    display: inline-block;
+    height: 55px;
+    overflow: hidden;
+    background: url(../image/star.png);
+}
+.star_rating span{
+    background-position:left bottom; /*시작점이 왼쪽부터라 left bottom(왼쪽아래)을 시작점으로 잡는다*/
+    line-height: 0; /*이미지의 윗부분이랑 겹쳐야하기때문에 자간을 없애줌*/
+    vertical-align: top;
+    width: 30%;
+}
+.guide_btn{
+    position:absolute;
+    top:70px;
+    right:0;
+    color:navy;
+}
+/*
+#main_content{
+    width: 1080px;
+
+}
+.content{
+    display: flex;
+    border:1px solid ivory;
+    justify-content: space-between;
+    height: 50px;
+    background: ivory;
+}
+.menu{
+    margin-bottom: 5px;
+    border:1px solid gray;
+    border-top-width:2px;
+    border-inline:1px solid gray;
+    width: 1080px;
+    text-align: center;
+    padding-top: 10px;
+    background: ivory;
+}
+.content div:first-child{
+    border-bottom-style: none;
+    margin-left: 2px;
+}
+.content div:last-child{
+    margin-right: 2px;
+}
+.content_image{
+    display: flex;
+    justify-content: center;
+}
+.image{
+
+    width: 800px;
+    height: 600px;
+    background: skyblue;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 100px;
+}
+
+#main_bottom{
+    height: 300px;
+    display: flex;
+    justify-content: space-between;
+    background: ivory;
+    padding:50px 0 20px 20px;
+}
+.bottom{
+    display: flex;
+    flex-direction: column;
+}
+.comment h3,p{
+    padding: 10px 0;
+}
+
+.star i{
+    font-size: 50px;
+    color:red;
+}
+.option{
+    display: flex;
+    align-items:center;
+    justify-content:space-between;
+
+}
+.counting{
+    font-size: 40px;
+}
+.detail_see{
+    color: blue;
+}
+.rule{
+    padding-right: 20px;
+    color: blue;
+}

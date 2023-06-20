@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./static/css/game.css">
+    <script src="./static/js/game.js"></script>
+</head>
+<body>
+    <div class="start">    
+        <button  onclick="start()">START</button>
+    </div>
+
+    <div class="game">
+        <img id="hand" src="./static/image/scissors.png">
+
+    </div>
+    <div class="select">
+        <b onclick="rst(1)" >
+            <img src="./static/image/scissors.png">
+        </b>
+        <b onclick="rst(2)" >
+            <img src="./static/image/rock.png">
+        </b>
+        <b onclick="rst(3)" >
+            <img src="./static/image/paper.png">
+        </b>
+    </div>
+    <div id="print"> </div>
+    
+</body>
+</html>

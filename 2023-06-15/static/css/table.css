@@ -1,0 +1,33 @@
+table tr td{
+    border:1px solid black;
+    width: 200px;
+    height:200px;
+    text-align: center;
+    font-size: 50px;
+}
+table tr:nth-child(1) td:last-child{
+    background: rgb(166, 255, 211);
+}
+table tr:nth-child(2) td:last-child{
+    background: rgb(166, 255, 211);
+}
+table tr:nth-child(3) td:last-child{
+    background: rgb(166, 255, 211);
+}
+table tr:nth-child(4) td:last-child{
+    background: rgb(166, 255, 211);
+}
+table tr:last-child td:nth-child(2){
+    background: burlywood;
+}
+#result{
+    width: 400px;
+    height: 50px;
+    font-size: 40px;
+    border:0;
+    border-top: 3px solid red;
+    border-bottom: 3px solid red;
+    color:red;
+    outline:none;
+}
+

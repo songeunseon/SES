@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*제어문
+        -조건문(if,switch)
+        -반복문(for,while,do~while)
+
+        if문-조건식의 결과가 참이냐 거짓이냐에 따라 코드를 실행시켜주는 제어문
+            분기문이라고도 한다.
+            코드의 흐름을 점프해서 동작시키기 때문에 순차적으로 실행이 아니다.
+        if(조건식){
+            조건식 참이라면 실행할 코드
+        }
+        */
+        // var age=19;
+        // if(age>=20){
+        //     document.write("성인이다.");
+        //     var temp=123; //지역변수-블럭안에서 생성된 변수는 해당블럭에서만 사용가능
+        //     temp=2323;
+        //     const pi=3.14;
+        // }
+        // document.write(temp);
+        // document.write("나는 if문과 아무상관없이 동작합니다.");
+        /*
+        var age=19;
+        if(age>=20){ //이곳의 {}는 조건식이 참일경우에만 실행
+            document.write("성인이다");
+        }
+        else{ //else뒤의 {}는 조건식이 거짓일 경우에만 실행
+            document.write("성인이 아니다");
+        }
+
+        //바이킹 탑승 조건 키가 150이상인 사람만 탈수있다.
+        var tall=161;
+        if(tall>=150){
+            document.write("탈수이따");
+        }
+        else{
+            document.write("탈수없따");
+        }
+        */
+        //동전 앞면 뒷면 맞추기 1.앞면 2.뒷면
+        // var coin=Math.floor(Math.random()*2)+1;
+        // var select=parseInt(prompt("1.앞면 2.뒷면"));
+        // if(coin==1){
+        //     document.write("딩동댕");
+        // }
+        // else{
+        //     document.write("딩동땡");
+        // }
+        /*
+        //주사위 1개를 던진다. 2의 배수가 나올경우에만 승리, 아니면 패배 출력
+        var cube=Math.floor(Math.random()*6)+1;
+        alert(cube);
+        // var res=parseInt(prompt("2의 배수는 승리"));
+        if(cube%2 == 0){
+            document.write("승리");
+        }
+        else{
+            document.write("패배");
+        }
+*/
+        //가위바위보 를 if문으로 만드세요
+        //else 뒤에는 절대 네버 조건식이 올수없다.
+        /*
+        var hand=Math.floor(Math.random()*3)+1;
+        var res=parseInt(prompt("1.가위 2.바위 3.보"));
+        var calc=hand-res;
+        if(calc==0){
+            document.write("비김");
+        }
+        if(calc==1||calc==-2){
+            document.write("이김");
+        }
+        if(calc==-1||calc==2){
+            document.write("패배");
+        }
+        */
+        //조건에 따른 결과가 3개 이상이라면 else if
+        //조건식이 두개이상 필요한경우 else if
+
+        //주사위를 컴퓨터와 대결하기
+        //주사위 각각 2개를 던진다
+        //승리조건은 두주사위의 합이 큰쪽이 이기고,
+        //같은 숫자가 나온경우에 승리
+
+        /*
+        var com1=Math.floor(Math.random()*6)+1;
+        var com2=Math.floor(Math.random()*6)+1;
+        var user1=Math.floor(Math.random()*6)+1;
+        var user2=Math.floor(Math.random()*6)+1;
+
+        var com_sum=com1+com2, user_sum=user1+user2;
+        if(user_sum>com_sum){ //나의 주사위 합이 더 큰경우
+            if(com1==com2){//내 합이 더 크지만 컴퓨터 주사위가 같은경우
+                if(user1==user2){//컴퓨터 주사위가 같지만 나도 주사위가 같은 숫자인 경우
+                    alert("나의 승리");
+                }else{
+                    alert("나의 패배");
+                }
+            }else{
+                alert("나의 승리");
+            }
+        }else if(user_sum<com_sum){//컴퓨터의 합이 더 큰경우
+            if(user1==user2){//내 주사위숫자가 같은경우
+                if(com1==com2){//컴퓨터 합이 크고 나는 숫자가 같은 경우에 컴퓨터도 같은 숫자
+                    alert("나의 패배");
+                }else{
+                    alert("나의 승리");
+                }
+            }else{
+                alert("나의 패배");
+            }
+        }else{//주사위 합이 컴퓨터와 내가 같은경우
+            if(user1==user2&&com1==com2){
+                alert("비김");
+            }else if(user1==user2){
+                alert("나의 승리");
+            }else if(com1==com2){
+                alert("나의 패배");
+            }else{
+                alert("비김");
+            }
+        }
+*/
+        // //점수가 100~90 A, 89~80 B, 79~70 C, 나머지는 F
+        // var score=91;
+        // if(/*score <=100 &&*/ score >=90)
+        //     alert("A등급");
+        // else if(/*score<90&&*/score>=80)
+        //     alert("B등급");
+        // else if(/*score<80&&*/score>=70)
+        //     alert("C등급");
+        // else
+        //     alert("F등급");
+        
+        //100m 달리기, 10초 이하는 매우빠름, 10~12초는 빠름, 13~17초는 보통, 18초 이상 느림 이라고 출력
+        /*var run_time=12;
+        if(run_time>=18)
+            alert("느림")
+        else if(run_time>13)
+            alert("보통")
+        else if(run_time>10)
+            alert("빠름")
+        else
+            alert("매우빠름")
+        */
+
+
+        //주차장의 기본요금이 1000원이다. 1000원에 기본주차시간은 30분이다.
+        //10분 초과시 100원씩 추가요금이 있다.
+        //2시간 이상 주차시 기본요금은 1500원이다.
+        //주차 시간을 입력해서 주차요금이 얼마인지 출력하기.
+        //주차시간은 분단위 입력
+        //2시간 이상 주차시 기본요금은 1500
+        //4시간 이상 주차시 기본요금은 2500
+        //8시간 이상 주차시 요금은 추가요금없이 무조건 10000원이다.
+
+        //요금예시) 61분 주차시 요금은 1300원 (기본요금 1000원에 30분초과 300원)
+        //         119분 주차시 요금은 1800원(기본요금 1000원에 80분 초과 800원)
+        //         134분 주차시 요금은 1600원 (2시간이상주차이기 때문에 기본요금은 1500원이고 10분초과 100원)
+        /*
+        var cost=1000;
+        var time=parseInt(prompt("주차시간 분"));
+        
+        if(time>=480)
+            alert("10000원");
+        else if(time>=240){
+            cost=2500;
+            time-=240;
+            
+        }
+        else if(time>=120){
+            cost=1500;
+            time-=120;
+        }
+        else if(time>=40){
+            time-=30
+        }
+        else{
+            time=0;
+        }
+        var price=cost+(parseInt(time/10)*100);
+        document.write("요금:"+price);
+        */
+        //숫자를 하나 입력받는다.
+        //숫자는 1~3중에 하나만 입력
+        //1을 입력했다면 빨간색 사각형이
+        //2를 입력했다면 노란색 사각형이
+        //3을 입력했다면 분홍색 사각형이 화면에 나오게 하시오
+        //사각형의 크기는 너비:200, 높이100
+        //힌트는 style
+        /*
+        var color=parseInt(prompt("1.빨강 2.노랑 3.분홍"));
+        if(color==1){
+            document.write("<div class=red></div>");
+        }
+        else if(color==2){
+            document.write("<div class=yellow></div>");
+        }        
+        else if(color==3){
+            document.write("<div class=pink></div>");
+        }*/
+//red라고 입력하면 빨간색 사각형
+//yellow이라고 입력하면 노란색 사각형
+//blue이라고 입력하면 파란색 사각형이 그려지게 만드시오
+//사각형의 너비높이는 위와동일
+/*
+        var color=prompt("red.빨간색 yellow.노란색 blue.파란색");
+        if(color=="red"){
+            document.write("<div class=red></div>");
+        }
+        else if(color=="yellow"){
+            document.write("<div class=yellow></div>");
+        }        
+        else if(color=="blue"){
+            document.write("<div class=blue></div>");
+        }
+*/
+//주사위 게임 문제
+//주사위 3개 있다.
+//3개의 주사위를 굴렸을대 나온 숫자를 각각 a,b,c라고 한다면
+//두 숫자가 같고 나머지가 다른숫자라면 a*a+b*b+c*c값 출력
+//세 숫자가 모두 같다면 a*b*c의 값 출력
+//세 숫자가 모두 다르다면 a+b+c의 값 출력
+/*
+    var a=Math.floor(Math.random()*6)+1;
+    var b=Math.floor(Math.random()*6)+1;
+    var c=Math.floor(Math.random()*6)+1;
+
+    if(a==b && b==c && a==c){
+        alert(a*b*c);
+    }
+    else if(a==b && a!=c){
+        alert(a*a+b*b+c*c);
+    }
+    else if(a!=b && b==c){
+        alert(a*a+b*b+c*c);
+    }
+    else if(a==c && a!=b){
+        alert(a*a+b*b+c*c);
+    }
+    else{
+        alert(a+b+c);
+    }
+
+    //a*a+b*b+c*c
+
+
+*/
+
+//도형을 입력하세욤
+var shape=prompt("정사각형, 직각사각형, 원형");
+
+//배경색을 입력하세욤
+var bg=prompt("빨강,파랑,노랑,핑크");
+
+//너비크기 입력하세욤(단, 원형은 반지름으로 처리)
+var width=parseInt(prompt("너비 : 100px 이상값 입력"));
+if(shape==="원형"){
+    width=width*2;
+}
+var height=0;
+//높이를 입력하세욤(단, 원형이 아닐경우에만)
+if(shape!="원형"){
+    height=parseInt(prompt("높이 : 100px 이상 입력"));
+}
+
+//정사각형이라고 입력했을 경우 너비와 높이는 같아야 햄
+if(shape==="정사각형"&&(width!=height)){
+    alert("정사각형을 만들기 위해서는 너비와 높이가 같아야 합니다.");
+    width=parseInt(prompt("너비 : 100px 이상값 입력"));
+    height=parseInt(prompt("높이 : 100px 이상 입력"));
+}
+//그리기!!
+var styles="";
+
+if(shape==="원형")
+    styles+="border-radius:100%;";
+
+if(bg==="빨강")
+    styles+="background:red;";
+else if(bg==="파랑")
+    styles+="background:blue;";
+else if(bg==="노랑")
+    styles+="background:yellow;";
+else if(bg==="핑크")
+    styles+="background:pink;";
+
+styles+="width:"+width+"px;";
+
+if(shape==="원형")
+    styles+="height:"+width+"px;";
+else
+    styles+="height:"+height+"px;";
+
+//화면에 도형 출력하셈
+document.write("<div style="+styles+"></div>");
+
+</script>
+<style>
+    /*.red{background: red; width: 200px; height: 100px;}
+    .yellow{background: yellow; width: 200px; height: 100px;}
+    .blue{background: blue; width: 200px; height: 100px;}
+*/
+
+</style>
+</head>
+<body>
+    
+</body>
+</html>

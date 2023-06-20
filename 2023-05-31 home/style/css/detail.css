@@ -1,0 +1,121 @@
+#main_top{
+    display:flex;
+}
+.top_left{
+    width: 500px;
+    padding: 20px;
+}
+.top_left img{
+    width: 460px;
+}
+.top_right{
+    width: 500px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-between;
+}
+.item_title{
+    padding-bottom: 30px;
+    border-bottom: 1px solid #000;
+}
+.item_price{
+    flex-grow: 1;
+    padding-top: 30px; /*flex일땐 margin을 주면 주변 것들한테 영향을줌 flex일땐 padding으로 주기*/
+}
+.item_button button:first-child{
+    border:1px solid blue;
+    color:blue;
+    background: ivory;
+    width: 200px;
+    height: 50px;;
+}
+.item_button button:last-child{
+    background: blue;
+    border:1px solid blue;
+    color:ivory;
+    width: 200px;
+    height: 50px;
+}
+
+
+#main_content{
+    width: 1000px;
+
+}
+.content{
+    display: flex;
+    border:1px solid ivory;
+    justify-content: space-between;
+    height: 50px;
+    background: ivory;
+}
+.menu{
+    margin-bottom: 5px;
+    border:1px solid gray;
+    border-top-width:2px;
+    border-inline:1px solid gray;
+    width: 1000px;
+    text-align: center;
+    padding-top: 10px;
+    background: ivory;
+}
+.content div:first-child{
+    border-bottom-style: none;
+    margin-left: 2px;
+}
+.content div:last-child{
+    margin-right: 2px;
+}
+.content_image{
+    display: flex;
+    justify-content: center;
+}
+.image{
+
+    width: 800px;
+    height: 600px;
+    background: skyblue;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 100px;
+}
+
+#main_bottom{
+    height: 300px;
+    display: flex;
+    justify-content: space-between;
+    background: ivory;
+    padding:50px 0 20px 20px;
+}
+.bottom{
+    display: flex;
+    flex-direction: column;
+}
+.comment h3,p{
+    padding: 10px 0;
+}
+
+.star i{
+    font-size: 50px;
+    color:red;
+}
+.option{
+    display: flex;
+    align-items:center;
+    justify-content:space-between;
+
+}
+.counting{
+    font-size: 40px;
+}
+.detail_see{
+    color: blue;
+}
+.rule{
+    padding-right: 20px;
+    color: blue;
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테이블마지막</title>
+    <style>
+        .first{
+            height:300px;
+        }
+        .second{
+            height:100px;
+        }
+        .third{
+            height:300px;
+        }
+        .top{
+            border:1px solid #000;
+            width:100px;
+        }
+        .left{border:1px solid #000;}
+        .center{
+            margin:0px;
+            padding:0px;
+        }
+        .right{border:1px solid #000;}
+        .under{border:1px solid #000;}
+
+        .one{
+            width:300px;
+        }
+        .two{
+            width:300px;
+        }
+        #pyo{
+            border-collapse: collapse;
+        }
+        .top:hover{
+            background:pink;
+        }
+        .left:hover{
+            background:yellow;
+        }
+        .rightmemo{
+            display:none;
+        }
+        .right:hover .rightmemo{
+            display:block;
+        }
+        .brother1:hover ~ .brother2{
+            opacity:1;
+        }
+        .brother2{opacity:0;}
+
+
+        
+    </style>
+
+</head>
+<body>
+    <table id="pyo">
+        <tr class="first">
+            <td class="one"></td>
+            <td class="top"></td>
+            <td class="two"></td>
+        </tr>
+        <tr class="second">
+            <td class="left"></td>
+            <td class="center"></td>
+            <td class="right">
+                <p class="rightmemo">
+                    나는 오른쪽 입니다.
+                    오른쪽은 오른손잡이가 밥먹을때 수저를 사용하는 손 쪽입니다.
+                </p>
+            </td>
+        </tr>
+        <tr class="third">
+            <td></td>
+            <td class="under">
+                <h3 class="brother1">여기에 마우스 놔보라고!</h3>
+                <h5 class="brother2">그냥 아무말이나 써요 이거 따라쓰지말고 알았지요??
+                    그냥 쓰라구요!! 따라쓰지말라고!!!!
+                </h5>
+            </td>
+            <td></td>
+        </tr>
+    </table>
+    
+</body>
+</html>

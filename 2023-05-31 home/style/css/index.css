@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap');
+
+*, *:before, *:after{
+    box-sizing: border-box;
+}
+body, h1,h2,h3,h4,h5,h6,p,ul,ol,li,dl,dd{
+    margin: 0;
+    padding: 0;
+}
+img{
+    max-width: 100%;
+    display: block;
+}
+a{
+    text-decoration:none;
+    color:inherit;
+    /*inherit:상속*/
+}
+#wrap{
+    max-width: 1080px;
+    width: 90%;
+    margin: 0 auto;
+}
+#header{
+    display: flex;
+    justify-content: space-between;
+    padding: 7px 20px;
+    border-bottom: 1px solid #d0d0d0;
+    position:sticky;
+    top:0;
+    background: #fff;
+}
+.header-logo{
+    width:100px;
+}
+
+.header-nav{
+    display:flex;
+    align-items:center;
+}
+
+.header-nav a{
+    margin-left:15px;
+}
+.header-nav a:nth-child(2){
+    display:flex;
+    align-items:center;
+    padding:7px 17px;
+    color:#fff;
+    background:#000;
+    border-radius:7px;
+}
+
+.header-nav a:nth-child(2) i{
+    padding-left:5px;
+}
+#main{
+    padding: 15px 0;
+}
+#flex{
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: center;
+    column-gap:20px;
+    row-gap:20px;
+}
+/* 
+    기본 폰트사이즈는 16
+    px(픽셀),pt(포인트)- 해상도영향을 받는
+    단위이기 때문에 반응형 사이트를 제작할때는 알맞는 단위는 아니다.
+   
+    반응형 사이트에서 주로 사용하는 단위들
+    %, em, rem, vw, vh
+    px,pt(절대단위)
+    % : 화면크기에 영향을 받아서 크기가 변한다.
+    em - font-size의 영향을 받는다.
+        font-size가 16px이라면 1em은 16*1=16px
+                              2em은 16*2=32px
+    rem - font-size의 영향을 받는다.
+        em과 rem의 차의점
+        -em은 부모의 font-size의 영향을 받는다.
+        -rem에서 r은 root를 의미
+        최상위 부모의 영향을 받는다.(html 태그의 font-size 영향받음)
+    vw,vh - 브라우저 화면의 영향을 받음. 
+    (<meta name="viewport" content="width=device-width, initial-scale=1.0">)
+    있어야 쓸 수 있는 단위.
+    
+    1vw - 화면 너비의 1% (%는 부모의 영향을 받지만 vw와 vh는 브라우저화면에 영향을 받는다)
+    1vh - 화면 높이의 1%
+*/
+
+.flexitem{
+    width: 30%;
+    max-width: 300px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.product-content{
+    padding: 5px;
+    font-size: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.like{
+    align-self: flex-end;
+}
+
+/*
+
+@media 조건{
+    스타일속성 : 속성값;
+
+@meia 키워드 논리연산자 (조건){
+    가장 일반적인 방식
+}
+키워드 - all, screen, print, tv, tty, projection 등등
+논리연산자 - and,or
+    and - 양쪽 조건이 모두 참인 경우에 참
+    or - 한쪽의 조건만 참이면 참
+조건 - max-width(이하), min-width(이상)
+    세로모드 : orientation:portrait
+    가로모드 : orientation:landscape
+    너비와 높이 비율
+        aspect-ratio:6/4 -> 너비가 6 높이가 4 6:4 비율
+    색상 비트수 ( 색상 표현 정도)
+        color:8 -> 색상이 8비트 라면
+
+
+        !참고 : 반응형 제작할 때 두가지 방법으로 제작한다.
+    1. 모바일 환경에서 PC환경으로 제작
+        min (PC용으로 만들고 min으로 바꾸면 적용이 X)
+    
+    2. PC환경에서 모바일 환경으로 제작
+        max
+*/
+
+@media screen and (max-width:768px){ /*너비가 768이하 라면
+    단위의 뜻과 반대*/
+
+#flex{
+        column-gap:15px;
+}
+.flexitem{
+        width:40%;
+}
+}
+
+@media screen and (max-width:576px){
+    #flex{
+        column-gap: 10px;
+    }
+    .flexitem{
+        width:80%;
+    }
+}

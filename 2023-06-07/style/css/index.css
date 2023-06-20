@@ -1,0 +1,156 @@
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+#wrap{
+    width:100%;
+    position:relative;
+}
+#header{
+    width:100%;
+    max-width:1200px;
+    margin:0 auto;
+    display:flex;
+    height: 94px;
+    align-items:center;
+}
+.top_image{
+    width: 225px;
+    height:37px;
+}
+.header_menu{
+    flex-grow: 1;
+}
+.top_image a{
+    background:url(../image/logo.png);
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+ul{list-style: none;}
+.menu_list{
+    display: flex;
+    height: 100%;
+    justify-content: flex-end;
+    position: relative;
+}
+.menu_list>li{
+    padding: 20px 30px;
+    font-size:20px;
+    position: relative;
+}
+.menu_list>li>ul{
+    position:absolute;
+    top:20px;
+    height:0;
+    width:0;
+    opacity: 0;
+}
+.menu_list>li>ul>li{
+    position: relative;
+    line-height: 0;
+}
+.menu_list>li:hover ul{
+    opacity:1;
+    width: 100%;
+    left:0;
+    top:67px; /*개발자도구 열어서 높이확인하기*/
+    /*or position:relative를 줄수있다 하지만 자식값때문에
+    부모가 밀리는 경우가 있기때문에 주의해야한다.*/
+    /*네비게이션 효과*/
+}
+.menu_list>li:hover ul>li{
+    line-height:1;
+    padding: 10px 0;
+    text-align:center;
+    font-size: 16px;
+}
+#section{
+    width: 1200px;
+    margin: 0 auto;
+}
+#img1{
+    width: 100px;
+}
+#img1 img{
+    width:100%;
+    transition: all ease 1s;
+}
+#img1 img:hover{
+    transform:rotateY(6.2832rad);
+}
+/*transform 기울기, 확대, 축소, 이동효과, 회전 할때 사용
+            회전-rotate => 단위 deg(각도) , turn, rad(180/3.14)
+            rotateX x축 기준으로 회전
+            rotateY y축 기준으로 회전
+translate 이동 => 해당요소를 이동
+            translate(x축 이동거리, y축 이동거리)
+            translateX(x축 이동거리)
+            translateY(y축 이동거리)
+            translate3d(x축 , y축 , z축)
+scale-확대 축소 => 가로,세로 크기 확대, 축소
+            scale(1.5) 가로,세로 크기를 1.5배 확대
+            scale(0.7) 가로,세로 크기를 0.7배 축소
+            scale(2,1.2) 가로2배, 세로1.2배 확대
+            scaleX(3) 가로만 3배 확대
+            scaleY(2.3) 세로만 2.3배 확대
+            1을 기준으로 1보다 크면 확대, 1보다 작으면 축소
+skew-기울기 => 가로,세로 방향으로 각도만큼 기울이기
+            skew(30deg,15deg) 가로 30도, 세로15도 기울기
+            skew(45deg) 가로 45도 기울기
+            skewX(30deg) 가로 30도 기울기
+            skewY(40deg) 세로 40도 기울기
+matrix(a,b,c,d,e,f);
+a: scaleX
+b: skewY
+c: skewX
+d: scaleY
+e: translateX
+f: translateY
+회전효과도 줄수있다 회전효과를 주려면 sin, cos, tan 써야한다.
+            matrix에 회전 적용시
+            matrix(con, sin, -sin, con, 0, 0)
+            45도 회전+3배 확대
+            -> matrix(3con45, 3sin45, -3sin45, 3con45, 0, 0)
+*/
+#move_box{
+    width: 100px;
+    height: 100px;
+    background: purple;
+    transition:all 1s;
+}
+#move_box:hover{
+    transform:translate3d(50px, 100px, 30px);
+}
+#zoom_box{
+    width: 100px;
+    height: 100px;
+    background: orange;
+    transition: all 1s;
+}
+#zoom_box:hover{
+    transform: scale(2,1.5);
+}
+#skew_box{
+    width: 100px;
+    height: 100px;
+    background: green;
+    transition:all 1s;
+}
+#skew_box:hover{
+    transform:skew(30deg, 20deg);
+}
+#matrix_box{
+    width: 100px;
+    height: 100px;
+    background: silver;
+}
+#matrix_box:hover{
+/*
+    transform:matrix(2,0,0,2,50,50)
+*/
+    transform: matrix(2.1, 1.4, -2.1, 1.4, 0, 0)
+}

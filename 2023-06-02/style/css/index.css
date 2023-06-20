@@ -1,0 +1,133 @@
+*{
+    box-sizing: border-box;
+}
+
+h1,h2,h3,h4,h5,dd{
+    margin: 0;
+}
+body{
+    width: 1080px;
+    position:relative;
+    margin: 0 auto;
+}
+#header{
+    padding:0;
+    margin-bottom: 5px;
+    width: 1080px;
+
+}
+#header img{
+    width: 1080px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 20px;
+}
+#main{
+    margin: 0;
+    padding:0;
+    width: 1080px;
+    height: 630px;
+    display: flex;
+    justify-content: space-between;
+
+
+}
+.main_main{
+    padding: 0;
+    margin: 0;
+    width: 20%;
+    height:100%;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.center{
+    width: 60%;
+    height: 100%;
+    padding:0 10px;
+    margin: 0;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    border-radius: 20px;
+}
+.main_center{
+    border-radius: 20px;
+    background: blue;
+    width: 100%;
+    padding: 10px;
+}
+.information{
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+
+}
+/*.information img{
+    width: ;
+    border-radius: 20px;
+    overflow: hidden;
+}*/
+.main_image img{
+    width: 180px;
+    height: 180px;
+    border-radius: 20px;
+}
+.information ul{
+    padding-left: 20px;
+}
+.information h3,ul{
+
+    padding-left:10px;
+}
+#bottom{
+    display: flex;
+    height: 300px;
+    padding-top: 10px;
+    justify-content: space-between;
+
+}
+.bottom_1{
+    width: 40%;
+    height: 100%;
+    border-radius: 20px;
+    background-image: url(../image/4.jpg);
+    display:flex;
+    flex-direction: column;
+    justify-content:space-around;
+    color: #fff;
+}
+.bottom_1 dl dt,dd{
+    padding-left: 20px;
+
+}
+.bottom_2{
+    width: 35%;
+    height: 100%;
+    margin:0 10px;
+    border-radius: 20px;
+    background-image: url(../image/5.jpg);
+    display:flex;
+    flex-direction: column;
+    justify-content:space-around;
+    color: #fff;
+}
+.bottom_3{
+    width: 25%;
+    height: 100%;
+    border-radius: 20px;
+    background-image: url(../image/6.jpg);
+    display:flex;
+    flex-direction: column;
+    justify-content:space-around;
+    color: #fff;
+}
+.bottom_2 dl dt,dd{
+    padding-left: 20px;
+}
+    .bottom_3 dl dt{
+        padding-left: 20px;
+}

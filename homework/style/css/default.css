@@ -1,0 +1,198 @@
+body{
+    position:relative;
+    margin:0 auto;
+    padding:0;
+    background:silver;
+    color:grey;
+    width: 1200px;
+
+}
+.login{
+    width:1200px;
+    height:20px;
+    padding: 10px;
+    color: black;
+    display: flex;
+    flex-direction: row-reverse
+}
+.login_list{
+    display: flex;
+    font-size:15px;
+
+}
+.login_list li{
+    cursor: pointer;
+    list-style-type:none;
+    padding: 0 10px;
+
+}
+.login_list li:hover{
+    color:lavender;
+}
+.logo img{
+    width:300px;
+    height:170px;
+}
+#header{
+    width:1200px;
+    position:relative;
+    display: flex;
+}
+.menu_wrap{
+    width:900px;
+    display: flex;
+}
+.menu{
+    font-size:25px;
+
+}
+.menu li{
+    display:inline-block;
+    padding: 30px 30px;
+    cursor: pointer;
+}
+#header .menu_wrap .menu li{
+    justify-content: space-around;
+}
+.menu li:hover{
+    color:white;
+}
+#wrap{
+    margin-top:30px;
+    position: relative;
+    width: 1200px;
+    padding: 0;
+}
+.main{
+    width:60%;
+    height: 400px;
+    margin: 0 30px;
+    text-align: center;
+    padding:10px 0;
+}
+.notice{
+    font-size: 25px;
+    font-weight: bold;
+    color:gold;
+    border:2px solid black;
+    margin-bottom: 10px;
+    padding:10px;
+    text-align: left;
+}
+.recruitment{
+    font-size: 25px;
+    font-weight: bold;
+    color:greenyellow;
+    border:2px solid black;
+    padding:10px;
+    text-align: left;
+}
+
+.notice_list{
+    font-size:15px;
+    color:black;
+    font-weight: normal;
+    list-style-type: none;
+    text-align: left;
+    cursor: pointer;
+}
+.recruitment_list{
+    font-size:15px;
+    color:black;
+    font-weight: normal;
+    list-style-type: none;
+    text-align: left;
+    cursor: pointer;
+}
+.section .main_image{
+    margin-right: 10px;
+    margin-top: 5px;
+}
+.main_image img{
+    width:300px;
+    height: 400px;
+}
+.section{
+    padding: 0;
+    height:400px;
+    width: 100%;
+    display: flex;
+
+
+}
+.notice_list li:hover{
+    color:gold;
+}
+.recruitment_list li:hover{
+    color:greenyellow;
+}
+
+.dictionary{
+    width:30%;
+    height:400px;
+    padding: 0;
+    margin: 0;
+    font-size:30px;
+    text-align: center;
+    color:black;
+    font-weight:bold;
+}
+.ko img{
+    padding:10px 0;
+}
+.am img{
+    padding:10px 0;
+}
+.ja img{
+    padding:10px 0;
+}
+#interview{
+    width: 1200px;
+    border:5px dotted #000;
+    margin: 20px 0;
+    font-size: 30px;
+    color: black;
+    text-align: center;
+    padding-top:10px;
+    font-weight: bold;
+
+}
+.video{
+
+    width:100%;
+    height:auto;
+    display:flex;
+    justify-content:space-around;
+
+}
+.video img{
+    width:200px;
+    height: 150px;
+    cursor: pointer;
+}
+
+#footer{
+    width:1200px;
+    margin:0;
+    text-align: center;
+}
+.ft_menu{
+    width:100%;
+    padding:30px;
+}
+.ft{
+    list-style-type:none;
+    padding:0;
+    margin:0;
+    display:flex;
+    justify-content: space-around;
+}
+.ft li{
+    padding-right: 30px;
+}
+.address{
+    padding:0 30px;
+}
+.copyright{
+    padding:5px 30px;
+}

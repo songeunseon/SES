@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./static/css/func8.css">
+    <script src="./static/js/func8.js"></script>
+</head>
+<body>
+    <!--
+        국어 수학 영어 점수 input을 입력받기
+        입력받은 점수에 각 과목마다 등급 출력하기
+        세과목의 평균에도 등급 출력하기
+        100~90이면 A , 89~80 B, 79~70 C, 나머지는 F
+        출력 내용은 알아서
+        다하신분은 개별적으로 검사
+    -->
+    <div>
+        국어 점수
+    </div>
+    <div>
+        <input type="number" id="kor" min="0" max="100">
+        <button onclick="k_lever()">등급</button>
+        <input type="text" id="kor_lv">
+    </div>
+
+    <div>
+        수학 점수
+    </div>
+    <div>
+        <input type="number" id="math" min="0" max="100">
+        <button onclick="m_lever()">등급</button>
+        <input type="text" id="math_lv">
+    </div>
+
+    <div>
+        영어 점수
+    </div>
+    <div>
+        <input type="number" id="eng" min="0" max="100">
+                <button onclick="e_lever()">등급</button>
+        <input type="text" id="eng_lv">
+    </div>
+    <br><br>
+    </div>
+        <button onclick="score_celc()">총점 / 평균</button>
+        <div id="celc">
+    </div>
+</body>
+</html>

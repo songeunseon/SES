@@ -1,0 +1,149 @@
+body{
+    /*body에 여백을 제거하여 화면에 꽉 채워서 사용하려고 합니다*/
+    padding:0;
+    margin:0;
+    background-color:#2e313d;
+    color:#e6e6e6;
+    position:relative;
+}
+
+#wrap{
+    position:relative;
+    width:100%;
+}
+#header{
+    width:1200px;
+    margin:0 auto;
+    background-color:#878c9e;
+    position:sticky;
+    top:0;
+    z-index:100;
+    display:flex;
+    padding:20px 0;
+    font-size:25px;
+    justify-content: space-between;
+}
+#section{
+    width:1200px;
+    margin:0 auto;
+    display:flex;
+    margin-top:15px;
+}
+#big{
+    width:80%;
+    height:800px;
+}
+#small{
+    width:20%;
+    height:800px;
+}
+#big .mainimage{
+    width:100%;
+    height:400px;
+    overflow:hidden;
+}
+#big .mainimage img{
+    width:100%;
+}
+.notice_adimg{
+    width:100%;
+    display:flex;
+    position: relative;
+}
+.notice_adimg .notice_box{
+    width:70%;
+    position: relative;
+}
+.notice_adimg .notice_box .notice_list{
+    /*list-style-image:url(../image/listIcon.png);*/
+    list-style-type:none;
+
+}
+.notice_adimg .notice_box .notice_list li::before{
+    content:'';
+    display:inline-block;
+    height:15px;
+    width:15px;
+    background-image:url(../image/listIcon.png);
+    background-size:15px;
+    background-repeat:no-repeat;
+    margin-right:5px;
+}
+.notice_adimg .notice_box .notice_list li{
+    padding:5px 0;
+}
+.notice_adimg .notice_box .notice_more{
+    position:absolute;
+    top:0;
+    right:20px;
+}
+.notice_adimg .adimg_box{
+    width:30%;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+}
+.notice_adimg .adimg_box img{
+    width:100%;
+}
+.coop_box .imagelist{
+    width:100%;
+    height:80px;
+    display:flex;
+    justify-content:space-between;    
+}
+.coop_box .imagelist img{
+    width:140px;
+}
+.coop_box{
+    width:100%;
+}
+.login_wrap{
+    text-align:center;
+    border:1px solid #cbcbcb;
+    height:120px;
+}
+.submenu_wrap{
+    width:100%;
+    position:relative;
+    margin-top:50px;
+    padding: 10px;
+}
+.submenu_wrap .submenu_list{
+    margin:0;
+    padding:0;
+    font-weight:700;
+    text-align:center;
+    list-style-type:none;
+    font-size:30px;
+}
+.submenu_wrap .submenu_list li{
+    padding:10px;
+}
+.submenu_wrap .submenu_list li:hover{
+    background: #fff;
+    color: #000;
+}
+#footer{
+    width:1200px;
+    margin:0 auto;
+}
+.ft_menu{
+    width:100%;
+    padding:30px;
+}
+.ft{
+    list-style-type:none;
+    padding:0;
+    margin:0;
+    display:flex;
+}
+.ft li{
+    padding-right: 30px;
+}
+.address{
+    padding:0 30px;
+}
+.copyright{
+    padding:5px 30px;
+}

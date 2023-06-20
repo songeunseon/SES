@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./static/css/func6.css">
+    <script src="./static/js/func6.js"></script>
+</head>
+<body>
+    <!--선향이가 좋아하는 랜덤게임 게임스타트 주사위 게임
+    게임 규칙 : 
+        1.컴퓨터와 주사위게임을 합니다.
+        2.컴퓨터의 주사위 이미지와 내 주사위 이미지가 화면에 나타납니다
+        3. start버튼을 클릭하면 컴퓨터 주사위를 랜덤값에 따라
+            맞는 숫자의 이미지가 나와야합니다
+        4.다음 내 주사위 이미지를 클릭하면 랜덤값에 따라 맞는 숫자의 이미지가 나와야합니다
+        5.결과는 주사위 숫자가 큰쪽이 승리입니다
+        6.결과 텍스트출력 아래쪽에는 그동안 진행한 결과가 출력됩니다
+            예) 3승 0패 1무 이런식으로 출력합니다.
+        
+        반드시 사용되어야하는 함수
+        Math.floor(), Math.random()
+        -->
+    <div class="st">
+        <button class="start" onclick="start()">START</button>
+    </div>
+    <div class="ju">
+        <div onclick="com()">
+            <img class="com" src="./static/image/1.png">
+        </div>
+        <div onclick="me()" >
+            <img class="me" src="./static/image/1.png">
+        </div>
+    </div>
+    <div id="result"></div>
+</body>
+</html>
