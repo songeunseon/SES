@@ -1,3 +1,4 @@
+let show=false; //start버튼 클릭 유무
 let num=new Array();//화면에 표시되는 숫자 저장배열
 let num2=new Array();//숫자가 출력될 위치 저장 배열
 function init(){ //초기화
@@ -65,10 +66,31 @@ function play(){
         for(var i=0; i<pic.length; i++){
             pic[i].style.display="none";
         }
+        show=true; //start버튼클릭했다 라는 의미
     },2000);//(함수,시간);
-
 }
-
 function  same_search(){
-    
+    if(!show){//show변수가 false라면 not연산에 의해 ture가 적용
+              //show변수가 true라면 not연산에 의해 false가 적용
+        alert("start버튼을 클릭하세요");
+        return; // start버튼을 클릭하지 않았으면 same_search함수를 실행시키지 않는다
+    }
+    //this.style.background="red";
+    var child=this.childNodes[0]; //childNodes모든자식태그를 배열로 저장됨
+    child.style.display="inline";
 }
+//자식태그 가져오는 방법:
+//children- 모든 자식태그를 htmlcollextion배열로 가져온다
+//childNodes- 모든 자식태그를 nodelist의 배열로 가져온다
+//firstChild- 첫번째 자식 태그
+//lastChild- 마지막 자식 태그
+
+//getElementById() 또는 getElementsByClassName()등 을 사용하면
+//태그의 객체라는 것이 반환된다.
+//태그의 객체를 변수에 담아서 사용해왔다.
+//자바스크립트에서는 html태그를 element, 요소 또는 객체라고 한다.
+//객체를 표현하는 방법중에 자기 자신을 의미하는 this가 있다.
+//same_search함수를 실행 시킨건 td태그이다.
+//즉 td라는 객체에 의해 same_search함수가 실행된것이다.
+//same_search함수안에서 this라고 사용하면 same_search함수를 실행시킨
+//td태그를 의미한다.
