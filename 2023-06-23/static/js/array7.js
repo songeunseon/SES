@@ -120,7 +120,14 @@ function make_num(){
         }
 
         //산술적 복합성 값 구하기
-        
+        var ac=new Array();
+        for(var i=lucky_num.length-1; i>=1; i--){
+            for(var k=i-1; i>=0; i--){
+                lucky_num[i]-lucky_num[k];
+                ac.push(lucky_num[i]-lucky_num[k]);
+            }
+
+        }
         out +="<td colspan='7'>"+
         "총합 : "+total+" "+ //공백부분 띄어쓰기부분임
         "홀/짝 :"+odd+"/"+even+"</td>";
