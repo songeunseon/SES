@@ -50,6 +50,7 @@ window.onload=function(){
     icon[0].addEventListener("click",open_close)
         //var list=document.getElementsByClassName("menu_list");
         //list[0].style.display="block"; (그림맞추기할때 썻던것)
+        content=document.querySelector("#content");
     
 }
 
@@ -72,11 +73,62 @@ function open_close(){
     }
 }
 
+let content=null;
+
 function win_confirm(){
     alert("당첨확인 클릭");
 }
 function make_num(){
-    alert("번호생성");
+
+        var out="<table class='makeTable'>";
+
+        for(var n=1; n<=5; n++){
+        let lucky_num=new Array();
+        lucky_num.push(Math.floor(Math.random()*45)+1);
+        for(var i=1; i<6; i++){
+            var num=Math.floor(Math.random()*45)+1;
+            if(lucky_num.indexOf(num)==-1){
+                lucky_num.push(num);
+            }else {
+                i--;
+            }
+        }
+        //두개의 값을 계산하여 +라면 자리바꾸기(더블정렬)
+        //(양수 음수 0 으로 나뉜다 음수나 0일때는 자리를 바꾸지않는다)
+        //총 데이터 개수의 -1번 
+        lucky_num.sort(function(a,b){return a-b;}) //오름차순
+        //내림차순도 할수있다 b-a
+
+        //로또 숫자를 태그에 담아주기
+        
+        out += "<tr>";
+        out +="<td class='numTd'>"+n+".</td>";
+        for(var i=0; i<lucky_num.length; i++){
+            out += "<td class='numTd'>"+lucky_num[i]+"</td>";
+        }
+        out += "</tr>";
+        
+        //짝, 홀 갯수 , 총합
+        var even=0, odd=0; //even 짝 , odd 홀
+        var total=0;
+        for(var i=0; i<lucky_num.length; i++){
+            total += lucky_num[i];
+            if(lucky_num[i]%2===0){
+                even++;
+            }else
+                odd++;
+        }
+
+        //산술적 복합성 값 구하기
+        
+        out +="<td colspan='7'>"+
+        "총합 : "+total+" "+ //공백부분 띄어쓰기부분임
+        "홀/짝 :"+odd+"/"+even+"</td>";
+    } // 5번 반복하는 for문 끝
+    out += "</table>";
+
+    //출력
+    content.innerHTML=out;
 }
 function num_count(){
     alert("출현횟수");
