@@ -5,6 +5,7 @@ function init(){ //초기화
     //중복없이 랜덤값 넣기
     //indexOf를 이용해서 -1이 나오면 일치하는게 없다.
     //즉 중복되는 숫자가 없다는 뜻이니까 배열에 저장
+    //배열이 0부터 하니까 제일가까운 -1 을 이용
     num.push(Math.floor(Math.random()*10)+1);
     for(var i=1; i<=3; i++){
         var temp=Math.floor(Math.random()*10)+1;
