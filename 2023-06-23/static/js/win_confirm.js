@@ -19,7 +19,6 @@ window.onload=function(){
             for (var i in temp){ //배열에서만 사용할수있는 조건식, i->인덱스가 들어감
                 lotto.push(temp[i].split("\t"));                    
             }
-            alert(lotto[0][3]);
         });
         reader.readAsText(files[0]);
     });
@@ -37,13 +36,33 @@ function data_default(){
 
 }
 function data_search(){
-    //결과확인 버튼을 클릭하면 input태그에 입력한 숫자를 모두 선택번호 td에 출력하기
-    var input=document.getElementsByClassName("input1");
-    var num_arr=new Array();
-
-    for(var i=0; i<input.length; i++){
-        num_arr.push(input[i].value);
+    if(lotto.length==0){
+        alert("로또파일먼저 열으라");
+        return;
     }
-    var resN=document.getElementsByClassName("resultNumber");
-    resN[0].innerHTML=num_arr;
+    let win_num=new Array();
+    for(var i=2; i<=7; i++){
+        win_num.push(parseInt(lotto[sel_count][i]));
+    }
+    for(var line=1; line<=5; line++){
+
+    //결과확인 버튼을 클릭하면 input태그에 입력한 숫자를 모두 선택번호 td에 출력하기
+        var input=document.getElementsByClassName("input"+line);
+        var num_arr=new Array();
+        
+        for(var i=0; i<input.length; i++){
+            if(input[i].value!=''){
+                var val=input[i].value;
+                if(win_num.indexOf(parseInt(val))==-1){ //내가 입력한 번호는 당첨X
+            num_arr.push("<span>"+input[i].value+"</span>");
+                }else{ //내가 입력한 번호가 당첨번호O
+                    num_arr.push("<strong class='red'>"+val+"</strong>");
+                }
+            }
+        }
+        if(num_arr.length==6){
+        var resN=document.getElementsByClassName("resultNumber");
+        resN[line-1].innerHTML=num_arr;
+        }
+    }
 }
