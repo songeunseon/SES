@@ -81,7 +81,34 @@ a:hover{
     font-size: 20px;
     border-radius: 100px;
 }
-
+#input_box{
+    margin:50px auto;
+    width:320px;
+}
+.mynum{
+    width:50px; height:50px;
+    font-size: 30px;
+    text-align: center;
+    margin-right: 2px;
+}
+.mynum::-webkit-inner-spin-button,
+.mynum::-webkit-outer-spin-button{
+    -webkit-appearance: none; margin:0;
+}
+#bt{
+    width: 320px;
+    text-align: right;
+    margin: 0 auto;
+    position: relative;
+    top: -20px;
+}
+#bt button{
+    border: 0;
+    background: #227adf;
+    font-size: 25px;
+    padding: 5px 25px;
+    color:#eee;
+}
 .list_active{
     display:block;
 }

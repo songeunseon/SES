@@ -33,7 +33,8 @@
     window.outerHeight; 브라우저의 전체높이
 
     브라우저의 크기가 변경되면 동작하는 함수 - resize();
-
+    
+    문자열에서 split함수를 쓰면 배열로 저장이 된다.
 */
 window.onresize=function(){
     var wd=window.innerWidth;
@@ -43,6 +44,8 @@ window.onresize=function(){
         list.dataset.show='1';
     }
 }
+let lotto=new Array(); //역대 당첨 번호 저장될 배열
+
 window.onload=function(){
     
     //화면이 전부 로딩 되면 시작하는 함수
@@ -51,8 +54,26 @@ window.onload=function(){
         //var list=document.getElementsByClassName("menu_list");
         //list[0].style.display="block"; (그림맞추기할때 썻던것)
         content=document.querySelector("#content");
-    
+
+        var file=document.querySelector("#lotto");
+        file.addEventListener("input",function(e){
+            let target=e.target; //선택된 파일참조
+            let files=target.files; // 선택 된 파일은 배열의 형식으로 저장된다
+            //첫번째 파일 참조를 해야 내가 선택한 파일을 읽을수 있다.
+            let reader=new FileReader();
+            reader.addEventListener("load",function(){
+                var str=reader.result;
+                var temp=str.split("\n");
+
+                for (var i in temp){ //배열에서만 사용할수있는 조건식, i->인덱스가 들어감
+                    lotto.push(temp[i].split("\t"));                    
+                }
+                alert(lotto[0][3]);
+            });
+            reader.readAsText(files[0]);
+        });
 }
+//배열은 3차원 배열까지만 사용한다 (정말 필요하면 3차원이상 쓰긴하지만)
 
 function open_close(){
     var list=document.getElementsByClassName("strapIcon")[0].nextSibling.nextSibling; //(형제로 찾는 법),
@@ -74,11 +95,23 @@ function open_close(){
 }
 
 let content=null;
-
+/*
 function win_confirm(){
-    alert("당첨확인 클릭");
+    var out="<div id='input_box'>";
+    var input="";
+    for (var i=1; i<=6; i++)
+        input += "<input type='number' class='mynum'>";
+        out+=input +"</div>";
+        out+="<div id='bt'><button onclick='check()'>확인</button></div>";
+        out+="<div id='result'></div>";
+        content.innerHTML=out;
 }
+*/
 function make_num(){
+        if(lotto.length==0){
+            alert("파일 먼저 좀 열어라")
+            return;
+        }
 
         var out="<table class='makeTable'>";
 
@@ -122,15 +155,33 @@ function make_num(){
         //산술적 복합성 값 구하기
         var ac=new Array();
         for(var i=lucky_num.length-1; i>=1; i--){
-            for(var k=i-1; i>=0; i--){
+            for(var k=i-1; k>=0; k--){
                 var tmp=lucky_num[i]-lucky_num[k];
                 if(ac.indexOf(tmp)==-1)
-                ac.push(tmp);
+                    ac.push(tmp);
             }
         }
         //역대 당첨번호와 비교하기
-        
+        //lotto는 2차원 배열 - 1차원 배열이 두개 있기 때문에 인덱스도 두개다.
+        //i변수에는 첫번째 인덱스를 k변수에는 두번째 인덱스를 표현한다.
+        for(var i in lotto){ 
+            for(var k=2; k<=7; k++){ //실제데이터가 들어있음
+                if(ac.indexOf(lotto[i][k])!=-1){
+                    //역대 당첨번호와 같은 숫자가 ac배열에 있다면 ac배열에서 삭제하기
+                    //배열에 저장되어있는 데이터를 삭제하는 방법
+                    //1.배열이름.pop()
+                    //2.특정인덱스의 데이터를 삭제-배열이름.splice(인덱스,갯수)
+                    //  삭제할 데이터의 인덱스와 해당 인덱스 부터 몇개 삭제할것인지 갯수
+                    var index=ac.indexOf(lotto[i][k]);
+                    ac.splice(index,1);
+
+                }
+            }
+        }
+
+
         out +="<td colspan='7'>"+
+        "AC :"+ (ac.length-5)+" "+
         "총합 : "+total+" "+ //공백부분 띄어쓰기부분임
         "홀/짝 :"+odd+"/"+even+"</td>";
     } // 5번 반복하는 for문 끝
@@ -139,6 +190,8 @@ function make_num(){
     //출력
     content.innerHTML=out;
 }
+/*
 function num_count(){
     alert("출현횟수");
 }
+*/
