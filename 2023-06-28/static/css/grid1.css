@@ -1,0 +1,20 @@
+*{
+    box-sizing: border-box;
+}
+body, h1,h2,h3,h4,h5,h6,p,ul,ol,li,dl,dd{
+    margin: 0;
+    padding: 0;
+}
+#flex{
+    width: 800px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: center;
+    column-gap:20px;
+    row-gap:20px;
+}
+.item{
+    width:200px;
+    height:200px;
+    background: black;
+}
