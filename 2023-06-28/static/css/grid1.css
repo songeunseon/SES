@@ -1,20 +1,105 @@
-*{
-    box-sizing: border-box;
-}
-body, h1,h2,h3,h4,h5,h6,p,ul,ol,li,dl,dd{
-    margin: 0;
-    padding: 0;
-}
-#flex{
-    width: 800px;
-    display:flex;
-    flex-wrap:wrap;
-    justify-content: center;
-    column-gap:20px;
+/* grid는 flex보다 더 상세하게 자리배치 가능하다 
+grid는 전체(큰틀)를 작업 flex는 안에 내용을 작업
+
+그리드 컨테이너
+-display:grid; 를 적용하는, grid의 전체영역
+그리드 컨테이너 안의 요소들이 그리드 규칙의 영향을 받아 정렬된다.
+
+그리드 아이템
+- 그리드 컨테이너의 자식 태그들. 그리드 규칙에 의해 배치가 된다.
+
+그리드 트랙
+- 그리드의 행과 열
+
+그리드 셀
+- 그리드의 한 칸을 가리키는 말, 그리드 아이템 하나하나씩을 셀이라고 한다
+
+그리드 라인
+- 그리드 셀을 구분하는 선
+
+그리드 번호
+- 각 그리드 라인에는 1번부터 번호가 부여된다.
+- 1행만 있는 경우 그리드번호는 행번호 1, 2 가 있다.
+
+그리드 갭
+- 그리드 셀 사이의 간격
+
+Grid 속성들은  flex와 마찬가지로 
+부모(컨테이너)에 적용하는 속성과
+자식(아이템)에 적용하는 속성이 있다.
+
+grid-template-columns 그리드 열의 각셀 너비값
+grid-template-rows 그리드 행의 각셀 높이값
+    - grid-template-columns: 100px 100px;
+이렇게하면 한줄에 2개의 셀에 너비를 100px 설정
+    - grid-template-columns: 150px 100px 200px;
+이렇게하면 한줄씩 3개의 셀에 150px 100px 200px씩 너비설정
+
+repeat()함수- repeat(반복횟수, 반복값)
+    repeat(4, 100px) 하면 한줄에 4개씩 표기하고 각셀에 너비 100px
+minmax()함수- minmax(최소값, 최대값)
+    minmax(100px, 300px) 각 셀의 너비가 최소 100에서 최대 300까지 늘어난다.
+
+auto-fill , auto-fit
+-column의 개수를 미리 정하지않고 설정된 너비가 허용하는 한 최대한 셀을 채운다.
+-반응형사이트만들때 좋음 (미디어쿼리 안써도됨)
+
+그리드 간격
+- row-gap , column-gap (행, 열 의 간격)
+gap: 10px 20px; - row 10, column 20
+gap: 15px; - row,column 15
+
+grid-auto-columns, grid-auto-rows
+- template이 아닌 auto로 변경해주면 알아서 크기 지정해라 라는 의미가 된다.
+    횟수 지정해서 반복하지 않아도 부모(컨테이너)의 크기에 맞춰서 알아서
+    행과 열이 적용된다.
+    단점은 통제를 벗어나 알아서 자동으로 설정되기 때문에 다루기 힘들다.
+    크기를 통제하지않으면 전체 레이아웃 구성에 어려움이 생긴다.
+    그래서 auto는 모바일용이나 소규모 레이아웃구성에 사용된다.
+    부모의 크기나 너비가 딱 정해져있는 곳에 사용할수 있다.
+
+각 셀의 영역 지정 방법
+    자식(그리드 아이템)에 적용하는 속성
+
+grid-column-start, grid-column-end, grid-column,
+grid-row-start, grid-row-end, grid-row
+(셀을 합치는것이 아니라 나의 크기를 늘리는것 , 다음녀석들이 밀려난다)
+*/ 
+#container{
+    display:grid;
+    /* grid-template-columns:repeat(5, 200px); repeat는 반복 */
+    /*grid-template-columns:repeat(5, 1fr); fr은 분수를 뜻함
+        5개 아이템에 5분의 1크기로 너비 부여
+    */
+    grid-template-columns:repeat(3, minmax(200px, auto));
+    grid-auto-rows:minmax(100px, auto);
+    /* grid-template-rows: repeat(5, 200px); */
+    /* column-gap:10px;
+    row-gap:10px; */
+    /*gap:30px 15px; 행간격, 열간격*/
+    /*gap:30px; 행과열 간격 모두 30px로 적용*/
     row-gap:20px;
+    column-gap:10px;
+    grid-row-gap:20px;
+    grid-column-gap:10px;
+    /*같은 뜻이지만 브라우저 호환성때문에 따로 쓴다.*/
 }
 .item{
-    width:200px;
-    height:200px;
-    background: black;
+    border:1px solid black;
+}
+.item:first-child{
+    grid-column-start:1;
+    grid-column-end:3;
+}
+.item:nth-child(4){
+    grid-column-start:1;  /*grid-column:1/3;*/
+    grid-column-end:3;
+    grid-row-start:5;   /*grid-row:5/7;*/
+    grid-row-end:7;
+}
+.item:nth-child(3){
+    grid-row-start:3;
+    grid-row-end:5;
+    grid-column-start:1;
+    grid-column-end:4;
 }
