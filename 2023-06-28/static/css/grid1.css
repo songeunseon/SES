@@ -83,18 +83,42 @@ grid-row-start, grid-row-end, grid-row
     grid-row-gap:20px;
     grid-column-gap:10px;
     /*같은 뜻이지만 브라우저 호환성때문에 따로 쓴다.*/
+
+    grid-template-areas:
+    "head head head" /*head 혼자 3칸을 다 차지하겠다*/
+    "sideA main sideB"
+    ". . ." /*3칸이라 점 3개*/
+    "foot foot foot"
+    ;
 }
 .item{
     border:1px solid black;
 }
-.item:first-child{
+/* 각 영역에 이름을 모두 주고 이름으로 배치하는 방법*/
+.item:nth-child(1){grid-area:head;}
+.item:nth-child(2){grid-area:sideA;}
+.item:nth-child(3){grid-area:main;}
+.item:nth-child(4){grid-area:sideB;}
+.item:nth-child(5){grid-area:foot;}
+
+/*그리드 라인을 이용해서 안에있는 div를 배치하는방법*/
+/* .item:nth-child(1){
+    grid-column:2;
+}
+.item:nth-child(3){
+    grid-column:2;
+}
+.item:nth-child(4){
+    grid-row:1/4;
+} */
+/* .item:first-child{
     grid-column-start:1;
     grid-column-end:3;
 }
 .item:nth-child(4){
-    grid-column-start:1;  /*grid-column:1/3;*/
+    grid-column-start:1;  grid-column:1/3;
     grid-column-end:3;
-    grid-row-start:5;   /*grid-row:5/7;*/
+    grid-row-start:5;   grid-row:5/7;
     grid-row-end:7;
 }
 .item:nth-child(3){
@@ -102,4 +126,4 @@ grid-row-start, grid-row-end, grid-row
     grid-row-end:5;
     grid-column-start:1;
     grid-column-end:4;
-}
+} */
