@@ -1,119 +1,99 @@
-
-:root{
-    --bs-green:#27a776;
-    --bs-gray:#e9ecef;
-}
 *{
     padding:0;
     margin:0;
-    color:#FFF;
-    background:#000;
+    box-sizing: border-box;
 }
 #wrap{
     margin:0 auto;
-    width:1680px;
+    width:1200px;
     display:grid;
     justify-content:center;
     gap:20px;
     grid-template-columns:1fr;
-    grid-template-rows:70px 380px 2600px 100px;
+    grid-template-rows:50px 100px 2000px 300px 120px;
+}
+.top{
+    margin-top: 20px;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    justify-content: space-between;
+}
+.top i{
+    justify-self: end;
 }
 ul{list-style-type:none;}
 #nav{
     display:grid;
     grid-template-columns:repeat(3,1fr);
     align-items: center;
-    position: sticky;
-    top:0;
-    z-index:10;
+
 }
-.webTitle{
-    font-size:30px;
-}
-.webTitle i{
-    color:var(--bs-green);
-}
-.menu ul{
+#menu ul{
     display:grid;
     grid-template-columns:repeat(5,1fr);
 }
-.sns{
-    justify-self: end;
-    display: grid;
-    grid-template-columns:repeat(4,1fr);
-    column-gap:15px;
-}
-.sns i::before{color:var(--bs-gray);}
-#main_text{
-    margin-top:50px;
-    display:grid;
-    justify-content:center;
-    height:250px;
-    grid-template-rows:auto;
-}
-#main_text h2{
-    font-size: 40px;
-}
-#main_text p{
-    justify-self: center;
-}
-#main_text a{
-    justify-self: center;
-    background: var(--bs-green);
-    align-self: center;
-    padding:10px 30px;
-    border-radius:5px;
-    box-shadow: 1px 1px 3px 0 skyblue;
+.menu_list li:first-child{
+    text-underline-offset: 5px;
+    text-decoration: underline;
 }
 #section{
     display: grid;
-    grid-template-columns: repeat(4,400px);
-    grid-template-rows: repeat(4,300px);
-    gap:20px
+    grid-template-columns: repeat(6,200px);
+    grid-template-rows: repeat(6,200px);
+    gap:20px;
+    justify-content:center;
 }
 .picture{
-    border-radius: 5px;
     overflow: hidden;
 }
 .picture:nth-child(1){
     background: url(../image/1.jpg);
     background-size:cover;
     background-repeat:no-repeat;
-    grid-column:1/3;
-    grid-row:1/3;
+    grid-column: 1/3 ;
+    grid-row: 1/3 ;
 
 }
 .picture:nth-child(2){
     background: url(../image/2.jpg);
     background-size:cover;
     background-repeat:no-repeat;
+    grid-column: 3/5 ;
+    grid-row: 1/3 ;
 }
 .picture:nth-child(3){
     background: url(../image/3.jpg);
     background-size:cover;
     background-repeat:no-repeat;
+    grid-column: 5/7 ;
+    grid-row: 1/3 ;
 }
 .picture:nth-child(4){
     background: url(../image/4.jpg);
     background-size:cover;
     background-repeat:no-repeat;
+    grid-column: 1/3 ;
+    grid-row: 3/5 ;
 }
 .picture:nth-child(5){
     background: url(../image/5.jpg);
     background-size:cover;
     background-repeat:no-repeat;
-    grid-column:3/5;
-    grid-row:2/4;
+    grid-column: 3/5 ;
+    grid-row: 3/5 ;
 }
 .picture:nth-child(6){
     background: url(../image/6.jpg);
     background-size:cover;
     background-repeat:no-repeat;
+    grid-column: 5/7 ;
+    grid-row: 3/5 ;
 }
 .picture:nth-child(7){
-    background: url(../image/7.jpg);
-    background-size:cover;
-    background-repeat:no-repeat;
+    grid-column: 1/7 ;
+    justify-self: center;
+    align-self: center;
+    text-align: center;
 }
 .picture:nth-child(8){
     background: url(../image/8.jpg);
@@ -125,8 +105,6 @@ ul{list-style-type:none;}
     background-size:cover;
     background-repeat:no-repeat;
     background-position: center;
-    grid-column:1/4;
-    grid-row:5/7;
 }
 .picture:nth-child(10){
     background: url(../image/10.jpg);
@@ -147,21 +125,30 @@ ul{list-style-type:none;}
     background: url(../image/13.jpg);
     background-size:cover;
     background-repeat:no-repeat;
-    grid-column:3/5;
-    grid-row:7/10;
 }
 .picture:nth-child(14){
-    background: url(../image/14.jpg);
-    background-size:cover;
-    background-repeat:no-repeat;
+    grid-column: 1/7 ;
+    justify-self: center;
+    align-self: center;
+    text-align: center;
 }
-.picture:nth-child(15){
-    background: url(../image/15.jpg);
-    background-size:cover;
-    background-repeat:no-repeat;
+#pic{
+    display: grid;
+    grid-template-columns: repeat(4,300px);
+    grid-template-rows: repeat(1,200px);
+    gap:20px;
+    justify-content:space-between;
+    text-align: center;
 }
-.picture:nth-child(16){
-    background: url(../image/16.jpg);
-    background-size:cover;
-    background-repeat:no-repeat;
+.pic:nth-child(1){
+    grid-column: 1/7 ;
+    justify-self: center;
+    align-self: center;
+    text-align: center;
+}
+
+#footer{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    justify-items: center;
 }
