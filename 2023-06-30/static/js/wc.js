@@ -22,8 +22,8 @@ function 순서섞기(){
         }
     }
 }
-function 태그선택(id){
-    return document.getElementById(id);
+function 태그선택(i){
+    return document.getElementById(i);
 }
 
 window.onload=function(){ //처음시작할때 필요한 내용을 넣어주는것 
