@@ -1,0 +1,46 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    background: #b281ff;
+    color: blanchedalmond;
+}
+#wrap{
+    width: 100%;
+    height: 100vh; /*vh는 브라우저 높이 적용*/
+    position: relative;
+}
+#title{
+    text-align: center;
+    font-size: 40px;
+    margin: 30px 0;
+}
+#choice_image{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.image_box{
+    width: 50%;
+    height: 50vw;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+.image_box img{
+    width: 100%;
+    height: 100%;
+}
+.image_box span{
+    display: inline-block;
+    position: absolute;
+    top:90%;
+    left:50%;
+    transform: translate(-50%,0); /*해당 크기나 위치변경시 이용하는게 transform (x축, y축)*/
+    padding: 15px 20px;
+    background: #b281ff;
+    font-size: 20px;
+    font-weight: 900;
+}
