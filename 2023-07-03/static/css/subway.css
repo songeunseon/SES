@@ -1,0 +1,44 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+
+}
+#map{
+    background: rgb(187, 187, 187);
+    width:100%;
+    height: 100%;
+    padding: 50px;
+    border:5px solid black;
+
+}
+#sw_text{
+    font-size: 50px;
+    text-align: center;
+    padding: 0 0 50px 0;
+}
+#sw_map1, #sw_map2, #sw_map3, #sw_map4{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    border-top:20px solid black;
+    padding: 10px 0 90px 0;
+    font-size: 30px;
+}
+#sw_map1{
+    border-right:20px solid black;
+}
+#sw_map2{
+    border-left:20px solid black;
+    display: flex;
+    flex-direction: row-reverse;
+}
+#sw_map3{
+    border-right:20px solid black;
+}
+#sw_map4{
+    display: flex;
+    flex-direction: row-reverse;
+}

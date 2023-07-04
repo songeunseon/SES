@@ -49,3 +49,4 @@ function func(){
 // gugu.innerHTML+=i*num+"<br>";
 // }
 // }
+
