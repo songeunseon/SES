@@ -1,0 +1,102 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+#map{
+    width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 20px;
+}
+.station{
+    width: 100px;
+    text-align: center;
+    position: relative;
+}
+.mark{
+    position: relative;
+}
+.rail{
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    top: 9px;
+    background: burlywood;
+    z-index: -1;
+}
+.fa-regular{
+    background: #fff;
+}
+.w95{width: 95%;}
+.w95-top{
+    border-top-right-radius:33px;
+}
+.w95-bottom{
+    border-bottom-right-radius:33px;
+}
+.w95-top-right{
+    left:5%;
+    border-top-left-radius:33px;
+}
+.w95-bottom-right{
+    left:5%;
+    border-bottom-left-radius:33px;
+}
+.rad{
+    width: 96px;
+    height: 87.5px;
+    position: absolute;
+    top: 30.4px;
+    border: 5px solid burlywood;
+    border-radius: 11px;
+}
+.left{
+    border-style: none solid none none;
+}
+.right{
+    border-style:none none none solid;
+}
+.train{
+    color:#fff;
+}
+.t-gold{ /*1번차량*/
+    color: gold;
+}
+.t-purple{ /*2번차량*/
+    color: purple;
+}
+.t-green{ /*3번차량*/
+    color: green;
+}
+.t-orangered{ /*4번차량*/
+    color:orangered;
+}
+#modal{
+    display: none;
+    position: fixed;
+    top:0;
+    width: 100%;
+    height: 100vh;
+}
+#modal_bg{
+    position: absolute;
+    top:0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: 0.7;
+}
+#bg{
+    position: relative;
+    width: 300px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: #fff;
+    border-radius: 10px;
+}
