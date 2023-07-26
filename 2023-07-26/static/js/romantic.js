@@ -63,7 +63,10 @@ function screen_show(){
     
 }
 function resave_list(){
-
+ 여기 내용 채워오기 
+ 배열에 저장되어있는것을
+ ex)list[0].place=엑스포
+ 그이후 스크린쇼
 }
 function update_list(){
     var sibling=this.nextSibling; //뒤에 있는 형제 태그
