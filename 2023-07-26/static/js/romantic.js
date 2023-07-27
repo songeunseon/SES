@@ -53,8 +53,8 @@ function screen_show(){
     del_tag=document.querySelectorAll(".del");
     save_tag=document.querySelectorAll(".save_again");
 
-    for(var i=0; i<update_tag.length; i++)
-        update_tag[i].addEventListener("click", resave_list);
+    for(var i=0; i<save_tag.length; i++)
+    save_tag[i].addEventListener("click", resave_list);
     for(var i=0; i<update_tag.length; i++)
         update_tag[i].addEventListener("click", update_list);
     for(var i=0; i<del_tag.length; i++){
@@ -62,20 +62,23 @@ function screen_show(){
     }
     
 }
-list[idx].place = nPlace;
-list[idx].money = nMoney;
-list[idx].period = nPeriod;
-list[idx].satisfaction = nStf;
+
 
 function resave_list(){
-    var nPlace = document.getElementById('re_place').value;
-    var nMoney = document.getElementById('re_money').value;
-    var nPeriod = document.getElementById('re_period').value;
-    var nStf = document.getElementById('re_satisfaction').value;
+    var place = document.getElementById('re_place');
+    var money = document.getElementById('re_money');
+    var period = document.getElementById('re_period');
+    var stf = document.getElementById('re_satisfaction');
 
+    if(value_check([place,money,period])) return;
 
+    var idx=this.parentNode.dataset.idx;
+    list[idx].place = place.value;
+    list[idx].money = money.value;
+    list[idx].period = period.value;
+    list[idx].satisfaction = stf.options[stf.selectedIndex].value;
 
- screen_show();
+    screen_show();
 }
 function update_list(){
     var sibling=this.nextSibling; //뒤에 있는 형제 태그
@@ -87,7 +90,7 @@ function update_list(){
     pre_sibling.innerHTML="<input type='text' id='re_place' value='"+list[idx].place+"'>"+
     "<input type='text' id='re_money' value='"+list[idx].money+"'>"+
     "<input type='text' id='re_period' value='"+list[idx].period+"'>"+
-    "<select id=re_satisfaction'><option value='1'>1</option><option value='2'>2</option>"+
+    "<select id='re_satisfaction'><option value='1'>1</option><option value='2'>2</option>"+
     "<option value='3'>3</option><option value='4'>4</option><option value='5'>5</option></select>";
 }
 function delete_list(){
