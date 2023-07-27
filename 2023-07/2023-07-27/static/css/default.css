@@ -6,7 +6,7 @@
 ul,ol{list-style-type: none;}
 a{text-decoration: none;}
 #house_wrap{
-    width: 500px;
+    width: 1000px;
     margin: 10px auto;
     border: 1px solid gray;
     border-radius: 10px;
@@ -95,4 +95,23 @@ a{text-decoration: none;}
 }
 #loan_wrap{
     text-align: center;
+}
+#hold_list_wrap{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 10px;
+}
+#hold_list_wrap table thead tr th{
+    border: 1px solid black;
+}
+#hold_list_wrap table{width: 100%; font-size: 10px;}
+.day{width: 10%; }
+.income_money, .expense_money{
+    width: 15%;
+}
+.detail{width: 30%;}
+.category{width: 15%;}
+.how{width: 10%;}
+#left_t, #right_t{
+    border-bottom: 1px solid #eee;
 }

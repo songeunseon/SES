@@ -103,8 +103,27 @@ function add(){
         }
     }
     var balance=account_update(parseInt(money)); //통장 잔액 변동 (parseInt를 안쓰면 더하기가 안됨)
+    
     keep.push(new house(wday, money, cate, detail, way, isIncome?"수입":"지출", balance ));
-    console.log(keep);
+    
+    var tbody="";
+    if(keep.length<=20)
+        tbody=document.getElementById("left_t");
+    else
+        tbody=document.getElementById("right_t");
+    
+    var index=keep.length-1;
+    console.log(keep[index]);
+    var tr=document.createElement("tr");
+    
+    var td="<td>"+keep[index].date+"</td><td>"+(keep[index].getcome=='수입' ? keep[index].won():'')+
+    "</td><td>"+(keep[index].getcome=='지출'? keep[index].won():'')+"</td><td>"+
+    keep[index].detail+"</td><td>"+keep[index].category+"</td><td>"+
+    keep[index].getWay()+"</td>";
+
+    tr.innerHTML=td;
+    tbody.appendChild(tr);
+
 }
 function account_update(money){
     if(way==="현금") return;
