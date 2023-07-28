@@ -11,11 +11,9 @@ window.onload=function(){
 
     bt.addEventListener("click", input);
 
-   
-
 }
 function input(){
-     var bank=document.querySelector("#bank").value;
+    var bank=document.querySelector("#bank").value;
     var money=document.querySelector("#money").value;
     var acc=document.querySelector("#account_num").value;
 
@@ -23,6 +21,8 @@ function input(){
 
     show();
 }
+
+
 function show(){
     var rst=document.querySelector("#rst");
     var out="";
