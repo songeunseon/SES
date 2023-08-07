@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+        #option{
+            display: flex;
+            width: 400px;
+            justify-content: space-around;
+            margin: 0 auto;
+        }
+        #list{
+            width: 400px;
+            margin: 0 auto;
+        }
+
+        .asc .bi-caret-down-fill{display: none;}
+        .desc .bi-caret-up-fill{display: none;}
+
+    </style>
+</head>
+<body>
+    <div id="option">
+        <div id="sort_age" class="asc">나이 <i class="bi bi-caret-up-fill"></i> <i class="bi bi-caret-down-fill"></i> </div>
+        <div id="sort_addt" class="asc">사는곳 <i class="bi bi-caret-up-fill"></i> <i class="bi bi-caret-down-fill"></i> </div>
+    </div>
+    <table id="list">
+        <thead>
+            <th>이름</th><th>나이</th><th>주소</th>
+        </thead>
+        <tbody id="person"></tbody>
+    </table>
+</body>
+</html>
+<script>
+    const arr=[["정예림",24,"중리동"],["신상수",29,"대흥동"],["김승겸",30,"은행동"],["임민지",28,"문화동"],["이상준",33,"선화동"],["김선향",34,"가양동"],["송은선",21,"태평동"]]; //배열안에 배열이 들어가있는 상태
+
+    data_view();
+
+    function data_view(){
+        $("#person").empty();
+        $.each(arr,function (i,data){
+            $("#person").append("<tr><td>"+data[0]+"</td><td>"+data[1]+"</td><td>"+data[2]+"</td></tr>"); 
+    });
+    }
+
+        $("#sort_age").click(function(){ //나이클릭
+            $(this).toggleClass("asc"); //오름차순 아이콘 표시
+            $(this).toggleClass("desc"); //내림차순 아이콘 표시
+            var has=-1; //desc일 경우 -1
+            if($(this).hasClass("asc")) has=1; //asc일 경우 1 
+            arr.sort(function(a,b){ //숫자 정렬 
+                return (a[1] - b[1]) * has; //양수 음수에 따라 다르니까 has의 역할은 부호를 반대로 해줌
+            });
+            data_view();
+        });
+
+        $("#sort_addt").click(function(){
+            $(this).toggleClass("asc");
+            $(this).toggleClass("desc");
+            var has=-1; //desc일 경우 -1
+            if($(this).hasClass("asc")) has=1; //asc일 경우 1 
+            arr.sort(function(a,b){ //문자 정렬 
+                if(a[2]<b[2]) return -1 * has; 
+                if(a[2]>b[2]) return 1 * has;
+                if(a[2]===b[2]) return 0 * has;
+            });
+            data_view();
+        });
+
+
+
+
+    // const arr=[5,4,3,12,7,1,9];
+        //현재 자바스크립트에서는 퀵 정렬과 병합정렬을 사용 (처리 소요시간이 짧음)
+
+    //삽입
+        // for(var i=0; i<arr.length-1; i++){ //첫번째 위치에서부터 비교를 해야 하기에 0부터
+        //     for(var k=i+1; k<arr.length; k++){ //i보다 +1부터 시작
+        //         if(arr[i] > arr[k]){
+        //             temp = arr[i];
+        //             arr[i] = arr[k];
+        //             arr[k] = temp;
+        //         }
+        //     }
+        // }
+
+    //버블
+        // for(var i=1; i<=arr.length-1; i++){ //총 데이터갯수의 -1만큼 반복
+        //     for(var k=0; k<=arr.length-i; k++){ //i값이 1씩 증가하니까 , 첫번째 for문이 한번 반복할때 마다 배열의 끝 부분부터 정렬이 완료 되기 때문에 비교 대상을 하나씩 감소
+        //         if(arr[k] > arr[k+1]){ //0번인덱스보다 1번인덱스가 클경우에 , 연산자만 < 이렇게 바꾸면 내림차순 ,(arr[k] - arr[k+1]) > 0) 이렇게하면 양수일때만 바꿔라-오름차순으로
+        //             var temp = arr[k]; 
+        //             arr[k] = arr[k+1];
+        //             arr[k+1] = temp;
+        //         }
+        //     }
+        // }
+        //     console.log(arr);
+
+        // arr.sort(function(a,b){
+        //     return a-b;
+        // });
+
+
+        // const arr=["정예림","신상수","김승겸","임민지","이상준","김선향","송은선"]; //버블정렬방식
+        // 버블정렬= 인접해있는 것 끼리 비교해서 자리를 바꿔주는것 (n-1)
+        // 삽입정렬= 해당데이터가 들어갈 위치에 삽입을 시켜주는 것, 맨 앞자리 부터 정렬완료 
+
+        // $.each(arr,function(i,data){
+        //     $("#before").append("<div>"+data+"</div>");
+        // });
+        
+        // // for(var i=1; i<=arr.length; i++){ //나이로 정렬
+        // //     for(var k=0; k< arr.length-i; k++){
+        // //         if(arr[k][1] > arr[k+1][1]){ //arr[k]인덱스의 [1]번 인덱스 비교
+        // //             temp = arr[k];
+        // //             arr[k] = arr[k+1];
+        // //             arr[k+1] = temp;
+        // //         }
+        // //     }
+        // // }
+        // arr.sort(function(a,b){
+        //     if(a[2]<b[2]) return -1;
+        //     if(a[2]>b[2]) return 1;
+        //     if(a[2]===b[2]) return 0;
+        // });
+
+        // $.each(arr,function(i,data){
+        //     $("#after").append("<div>"+data+"</div>");
+        // });
+
+        // 숫자일경우의 내림차순 정렬 방법
+        //arr.sort(function(a,b){return b-a;});
+
+        // arr.sort(function(a,b){ //sort= 기본오름차순 정렬
+        //     if(a<b) return 1;
+        //     if(a>b) return -1;
+        //     if(a===b) return 0;
+        // }); //문자열 대소 비교, 내림차순 정렬 방법
+
+</script>
