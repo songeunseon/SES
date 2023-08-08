@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+/*
+    자바스크립트 비동기 - aysnc , await , promose 
+    자바스크립트에서 비동기 처리 3가지 방법
+    1. 콜백함수
+    2. promise
+    3. aysnc/await
+    
+*/
+        // let start=0, end=0;
+
+        // function work(call){ //2.콜백함수를 매개변수로 받아서
+        //     setTimeout(function(){ //콜백함수 순차적 처리가 될수있도록 도와주는 방식
+        //     const start=Date.now();
+        //     for(let i=0; i<100000000; i++){}
+        //     end = Date.now();
+        //     call(); //3.매개변수를 함수로 실행
+        // },0);
+        // }
+        // console.log("작업전");
+        // work(function(){console.log(end-start);}); //1.콜백
+        
+// --------------------------------------------------------------------------------------------        
+
+//컴퓨터는 순차적 명령을 실행하기 위해 큐라는 구조를 사용한다.
+//큐는 FIFO의 구조이고 먼저 들어온 명령이 먼저 실행되는 구조이다.
+//들어온 순서대로만 실행시켜준다.
+//코드를 작성하고 실행 시키면 순차적으로 실행되는데 스크립트에서 promise의 then을 실행하는 경우에
+//micro 큐 라는 곳으로 따로 적재가 된다.
+//then함수의 명령이 기존 큐에서 벗어나서 micro큐에 들어가게 되고
+//원래 사용되던 큐에서는 다음 명령을 실행한다.
+//큐에 명령이 모두 실행되서 비워지게 되면 micro큐에 있는 명령을 가지고와 실행한다.
+// 즉, 시작 -> 끝 -> 1 순서로 출력된다.
+
+        function pfunc(){
+            return new Promise(function(a,b){
+                a(1);
+            });
+        }
+        console.log("시작");
+        pfunc().then(console.log);
+        console.log("끝");
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
