@@ -1,6 +1,6 @@
 let data=[]; //json 데이터 저장할 변수
 let fire_stat=new Object();
-var i=0;
+var i=50;
 
 
 
@@ -55,16 +55,18 @@ $(async function(){
         ctx.fill();
     });
     var id;
+    var step=10;
     $("#move").click(function(){
         
             id=setInterval(function(){
-                i+=10;
+                
                 ctx.clearRect(0,0,500,500);
                 ctx.beginPath();
                 ctx.arc(i,100,50,0,2*Math.PI,true);
                 ctx.fillStyle="skyblue";
                 ctx.fill();
-                if(i>=450) clearInterval(id);
+                i+=step;
+                if(i==450 || i==50) step*=-1;
             },50);
     });
 
