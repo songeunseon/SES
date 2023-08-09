@@ -11,36 +11,39 @@
 </head>
 <body>
     <div id="wrap">
-        <header id="header">
-            <div id="headerSearch">
-                <div id="headerInput">
-                    <input type="text" name="word" id="Word">
-                    <i class="bi bi-search"></i>
+        <fieldset>
+            <legend>인공어초 검색</legend>
+            <div class="search_box">
+                <div class="search_title">어초종류</div>
+                <div id="fish_kind">
+
                 </div>
             </div>
-        </header>
-        <div id="main">
-            <div id="detail">
-                
+            <div class="search">
+                <div class="search_box">
+                    <div class="search_title">어초수량</div>
+                    <div id="fish_amount">
+
+                    </div>
+                </div>
             </div>
+            <div class="search">
+                <div class="search_box">
+                    <div class="search_title">설치년도</div>
+                    <div id="install_year">
+
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <div id="title">
+            <span class="num">연번</span>
+            <span class="fyear">설치년도</span>
+            <span class="ftype">어초종류</span>
+            <span class="famount">어초수량</span>
+            <span class="flocation">지역</span>
         </div>
+        <div id="list"></div>
     </div>
-
-
-
-
-
-    "연번": "string",
-      "설치년도": "string",
-      "지역명": "string",
-      "어초종류": "string",
-      "어초확인수량": "string",
-      "위도(도)": "string",
-      "위도(분)": "string",
-      "위도(초)": "string",
-      "경도(도)": "string",
-      "경도(분)": "string",
-      "경도(초)": "string"
-    }
 </body>
 </html>
