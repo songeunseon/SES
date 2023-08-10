@@ -55,18 +55,25 @@ $(async function(){
         ctx.fill();
     });
     var id;
-    var step=10;
+    var stepx=10, stepy=15;
+    var x=50; y=80; //원이 그려지는 좌표
     $("#move").click(function(){
         
             id=setInterval(function(){
                 
                 ctx.clearRect(0,0,500,500);
                 ctx.beginPath();
-                ctx.arc(i,100,50,0,2*Math.PI,true);
+                ctx.arc(x,y,50,0,2*Math.PI,true);
                 ctx.fillStyle="skyblue";
                 ctx.fill();
-                i+=step;
-                if(i==450 || i==50) step*=-1;
+                x+=stepx;
+                y+=stepy;
+
+                if(x>450 || x<50) stepx*=-1;
+                if(y<50 || y>450){
+                    stepy=(stepy<0?(Math.floor(Math.random()*5)+10)*-1:(Math.floor(Math.random()*5)+10));
+                    stepy*=-1;
+                }
             },50);
     });
 
