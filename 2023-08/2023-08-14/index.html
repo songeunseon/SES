@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script src="./static/js/index.js"></script>
+    <link rel="stylesheet" href="./static/css/index.css">
+
+</head>
+<body>
+    <div id="wrap">
+        <header id="header">
+            <div class="select_box">
+                <div class="select_pl">
+                    <label>시도</label><select id="si"></select>
+                </div>
+                <div class="select_pl">
+                    <label>구군</label><select id="gu"></select>
+                </div>
+            </div>
+            <div class="check_wrap">
+                <div class="check_box">
+                    <label>전용면적</label>
+                    <span>~20㎡<input type='checkbox' name='prvusear' value='20'></span>
+                    <span>20㎡~40㎡<input type='checkbox' name='prvusear' value='20~40'></span>
+                    <span>40㎡~60㎡<input type='checkbox' name='prvusear' value='40~60'></span>
+                    <span>60㎡~<input type='checkbox' name='prvusear' value='60'></span>
+                </div>
+                <div class="check_box">
+                    <label>주택유형</label>
+                    <span>아파트<input type='checkbox' name='housetynm' value='아파트'></span>
+                    <span>오피스텔<input type='checkbox' name='housetynm' value='오피스텔'></span>
+                    <span>다가구주택<input type='checkbox' name='housetynm' value='다가구주택'></span>
+                    <span>다세대주택<input type='checkbox' name='housetynm' value='다세대주택'></span>
+                </div>
+            </div>
+            <div class="search_wrap">
+                <input type="text" id="rentgtn" placeholder="임대보즘금- 입력 값 이상 조회">
+                <input type="text" id="rntchrg" placeholder="월임대료- 입력 값 이상 조회">
+            </div>
+        </header>
+    </div>
+    <div id="search_result">
+        <table>
+            <tbody>
+                <th>주소</th><th>준공일자</th><th>전용면적</th><th>공용면적</th><th>주택유형</th><th>주차수</th><th>보증금</th><th>월임대료</th><th>세대수</th>
+            </tbody>
+            <tbody id="result"></tbody>
+        </table>
+    </div>
+</body>
+</html>
