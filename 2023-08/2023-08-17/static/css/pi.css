@@ -1,0 +1,81 @@
+*{padding: 0; margin: 0; box-sizing: border-box;}
+#wrap{
+    margin: 0 auto;
+    width: 1300px;
+    position: relative;
+    text-align: center;
+}
+#wrap h1{
+    padding: 20px 0;
+}
+#data_input{
+    width: 100%;
+    position: relative;
+}
+#data_input .labels{
+    display: inline-block;
+    border:  2px solid black;
+    padding: 5px 30px;
+    border-radius: 5px;
+    margin: 30px 100px;
+}
+#data_input .labels:hover{
+    border:  2px solid #b9c8cf;
+}
+#data_input .choice{
+    background: #fbd0ad;
+    color: black;
+    font-weight: 800;
+}
+.input_wrap{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+}
+.category{
+    width: 150px;
+    height: 30px;
+    border: 3px solid #b9c8cf;
+    border-radius: 10px;
+    padding: 0 5px;
+}
+.money{
+    width: 150px;
+    height: 30px;
+    padding: 0 5px;
+    margin: 0 10px;
+    outline: none;
+    border: 0;
+    border-bottom: 3px solid #727171;
+    font-size: 20px;
+}
+.bt{
+    height: 40px;
+    padding: 5px 20px;
+    margin: 0 10px;
+    background: #fbd0ad;
+    font-size: 17px;
+    color: black;
+    border: 0;
+    border-radius: 100px;
+    border-bottom: 3px solid #b9c8cf;
+    border-right: 3px solid #b9c8cf;
+}
+.bt:hover{
+    background: #b9c8cf;
+    color: #fff;
+}
+#chart_board{
+    display: flex;
+    margin-top: 50px;
+    justify-content: space-between;
+    column-gap: 10px;
+}
+#chart1, #chart2{
+    width: 600px;
+    height: 600px;
+    border: 3px dotted #fbd0ad;
+    border-radius: 10px;
+
+}
