@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <style>
+        #day{
+            width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .diary_info{
+            margin: 50px auto;
+            padding: 10px;
+            font-size: 20px;
+            border: 0;
+            font-weight: 700;
+
+        }
+        #date{
+            width: 250px;
+            margin-right: 100px;
+            border-bottom: 3px solid #aaa;
+            outline: none;
+            text-align: center;
+        }
+        .weather{
+            width: 50px;
+        }
+        #diary{
+            width: 1000px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        #list #diary_list th{
+            border-bottom: 3px solid #aaa;
+            border-right: 3px solid #aaa;
+            border-radius: 100px;
+            text-align: center;
+            font-size: 25px;
+            color: black;
+            padding: 5px 0;
+        }
+        #a{width: 150px;}
+        #b{width: 150px;}
+        #c{width: 100px;}
+        #d{width: 500px;}
+
+        #detail_diary{
+            width: 100%;
+            margin: 0 auto;
+        }
+        #detail_diary tr td{
+            border-top:  2px solid black;
+            border-bottom:  2px solid black;
+            height: 50px;
+           
+        }
+        #detail_diary tr:nth-child(even){
+            background: #aaa;
+            color: #fff;
+
+        }
+    </style>
+</head>
+<body>
+    <div id="day">
+        <input class="diary_info" id="date" type="date" name="date">
+        <input class="weather" id="sunny" type="radio" name="weather" value="맑음">맑음
+        <input class="weather" id="cloudy" type="radio" name="weather" value="흐림">흐림
+        <input class="weather" id="thunder" type="radio" name="weather" value="천둥">천둥
+    </div>
+    <div id="diary">
+        <table id="list">
+            <thead id="diary_list">
+                <th id="a">날짜</th>
+                <th id="b">제목</th>
+                <th id="c">날씨</th>
+                <th id="d">내용</th>
+            </thead>
+            <tbody id="detail_diary">
+
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+<script>
+    $.getJSON("./data/test4.json", function(data){
+        $.each(data.diary,function(i,item){
+            $("#detail_diary").append(
+                "<tr>"+
+                "<td>"+item.작성일+"</td>"+
+                "<td>"+item.제목+"</td>"+
+                "<td class='wtr'>"+item.날씨+"</td>"+
+                "<td>"+item.내용+"</td>"+
+                "</tr>");
+            
+        })
+        console.log(data.diary);
+    });
+    $(".weather").click(function(){
+        var wt = $(".weather").val()
+        $("#detail_diary>tr").filter(function(idx){
+            var w = $(this).find(".wtr").text().indexOf(wt)>-1;
+            console.log(w);
+        })
+    })
+
+
+
+
+    //숙제
+//날짜로 검색 가능하게 input type date
+//날씨로 검색 가능하게 - 날씨는 맑음, 흐림, 천둥 중 하나만 선택가능하다. 맑음 선택하면 날씨가 맑은 인것만 화면 표시
+
+
+</script>
