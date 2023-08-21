@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <style>
+        *{margin: 0; padding: 0; box-sizing: border-box;}
+        #a{
+            width: 800px;
+            margin: 50px auto;
+            text-align: center;
+            font-size: 30px;
+            font-weight: 700;
+            color: darkkhaki;
+            border-left: 5px solid black;
+            border-right: 5px solid black;
+            border-radius: 100px;
+        }
+        #a input{
+            width: 25px;
+            height: 25px;
+            margin: 0 10px;
+        }
+        #a input:nth-child(2){
+            margin-left: 200px;
+        }
+        #title, #list{
+            width: 1000px;
+            text-align: center;
+            border: 0;
+            margin: 20px auto;
+            background: cadetblue;
+            font-size: 20px;
+            padding: 10px 0;
+        }
+        #title b{
+            display: inline-block;
+            color: #fff;
+        }
+        #list span{display: inline-block;}
+        #list{
+            list-style-type: none;
+            padding: 0;
+        }
+        .hak, .name{ width: 20%;}
+        .dept{width: 37%;}
+        .c, .web{width: 10%;}
+
+        #list li{
+            background: burlywood;
+            border-bottom: 1px dotted black;
+            padding: 10px 0;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div id="a">
+        <input type="checkbox" name="department" value="com">컴퓨터공학과
+        <input type="checkbox" name="department" value="info">정보통신학과
+    </div>
+    <div id="title">
+        <b class="hak">학번</b>
+        <b class="name">이름</b>
+        <b class="dept">학과</b>
+        <b class="c">C언어</b>
+        <b class="web">웹</b>
+    </div>
+    <ul id="list">
+
+    </ul>
+</body>
+</html>
+<script>
+    $.getJSON("./data/test3.json",function(data){
+        $.each(data.score,function(i,item){
+            $("#list").append("<li>"+
+                    "<span class='hak'>"+item.학번+"</span>"+
+                    "<span class='name'>"+item.이름+"</span>"+
+                    "<span class='dept'>"+item.학과+"</span>"+
+                    "<span class='c'>"+item.C언어+"</span>"+
+                    "<span class='web'>"+item.웹+"</span>"+
+                    "</li>")
+            console.log(data.score);
+            
+        });
+    });
+    $("input[name=department]").change(function(){
+        var dept = new Array();
+        $("input[name=department]:checked").each(function(){
+            dept.push($(this).val());
+            
+        });
+        $("#list>li").filter(function(){
+            var hasDept=true;
+            if(dept.length !=0){
+                hasDept=false;
+                for(var i in dept){
+                    if($(this).text().indexOf(dept[i]=="com"?"컴퓨터공학과":"정보통신학과")>-1)
+                    hasDept=true;
+                };
+            }
+            $(this).toggle(hasDept);
+        });
+    });
+</script>

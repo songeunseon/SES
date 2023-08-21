@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <style>
+        #food{
+            width: 800px;
+            margin: 50px auto;
+            text-align: center;
+        }
+        #keyword{
+            width: 300px;
+            margin: 0 100px 0 0;
+            border:0;
+            border-bottom: 3px dotted mediumseagreen;
+            outline: none;
+            font-size: 20px;
+            padding: 10px 5px;
+            text-align: center;
+            color: mediumseagreen;
+            font-weight: 900;
+        }
+        #bt{
+            width: 50px;
+            height: 50px;
+            border-radius: 100px; 
+            border: 0;
+            background: mediumseagreen;
+            font-weight: 900;
+            color: #fff;
+        }
+        #list{
+            width: 800px;
+            margin: 0 auto;
+        }
+        #content{
+            width: 100%;
+            text-align: center;
+            font-size: 20px;
+            font-weight: 600;
+        }
+        #content tr td{
+            height: 40px;
+        }
+        #content th:nth-child(1){
+            border-bottom: 3px solid cornflowerblue;
+            width: 200px;
+            color: cornflowerblue;
+            height: 50px;
+            font-size: 30px;
+        }
+        #content th:nth-child(2){
+            border-bottom: 3px solid hotpink;
+            width: 600px;
+            color: hotpink;
+            height: 50px;
+            font-size: 30px;
+        }
+        #content tr td:nth-child(1){
+            border: 2px dotted skyblue;
+            border-radius: 10px;
+        }
+        #content tr td:nth-child(2){
+            border: 2px dotted pink;
+            border-radius: 10px;
+        }
+        #content tr:nth-child(even) td:nth-child(1){
+            background: powderblue;
+            border: 0;
+        }
+        #content tr:nth-child(even) td:nth-child(2){
+            background: lightpink;
+            border: 0;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="food">
+        <input id="keyword" type="text" name="name" placeholder="검색어를 입력하세요">
+        <button id="bt">검색</button>
+    </div>
+    <div id="list">
+        <table id="content">
+            <thead>
+                <th>식당명</th>
+                <th>메뉴</th>
+            </thead>
+            <tbody id="list_detail">
+
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+<script>
+    $.getJSON("./data/test2.json",function(a){
+
+        var food = Object.keys(a);
+        console.log(food)
+
+        $.each(food,function(i,item){
+            $("#list_detail").append("<tr><td class='name'>"+item+"</td><td class='menu'>"+a[item]+"</td></tr>");
+        })
+    });
+$("#keyword").keyup(function(){
+    var word = $("#keyword").val();
+    $("#list_detail>tr").filter(function(idx){
+    var f = $(this).find(".menu").text().indexOf(word)>-1;
+    $(this).toggle(f);
+    // console.log(word);
+    })
+});
+</script>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <style>
+        #wrap{
+            width: 500px;
+            margin: 50px auto;
+            text-align: center;
+        }
+        #content{
+            width: 500px;
+            margin: 30px auto;
+            border-collapse: collapse;
+        }
+        #content th{
+            border: 1px solid black;
+        }
+        #content td{
+            border: 1px solid #aaa;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <input id="keyword" type="text" name="keyword">
+        <button id="bt">검색</button>
+    </div>
+    <div id="list">
+        <table id="content">
+            <thead>
+                <th>이름</th>
+                <th>현재상태</th>
+            </thead>
+            <tbody id="state_detail">
+
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+<script>
+    $.getJSON("./data/test.json",function(a){
+    console.log(a);
+
+    var key_arr=Object.keys(a);
+    console.log(key_arr)
+    // $("#state_detail").append("<tr><td>"+key[0]+"</td><td>"+a[key[0]]+"</td></tr>");
+    // $("#state_detail").append("<tr><td>"+key[1]+"</td><td>"+a[key[1]]+"</td></tr>");
+    // $("#state_detail").append("<tr><td>"+key[2]+"</td><td>"+a[key[2]]+"</td></tr>");
+    // $("#state_detail").append("<tr><td>"+key[3]+"</td><td>"+a[key[3]]+"</td></tr>");
+
+
+    // for(var i=0; i<key_arr.length; i++){
+    //     $("#state_detail").append("<tr><td>"+key_arr[i]+"</td><td>"+a[key_arr[i]]+"</td></tr>");
+    // }
+
+    $.each(key_arr,function(인덱스,데이터){
+        $("#state_detail").append("<tr class='data_row'><td class='name'>"+데이터+"</td><td class='state'>"+a[데이터]+"</td></tr>")
+    })
+});
+
+        
+        $("#bt").click(function(){
+            var word=$("#keyword").val();
+            $("#state_detail>tr").filter(function(idx){
+            flag= $(this).find(".name").text().indexOf(word) > -1;
+            $(this).toggle(flag);
+            })
+
+        });
+        
+</script>
