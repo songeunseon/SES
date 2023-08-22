@@ -32,8 +32,28 @@ $(function(){
         $("#word").on("keyup",default_search);
         $("#word").next().click(default_search);
 
-        $(".search_detail")
+        $(".search_detail input").on("keyup",detail_search);
+        $("#cls").change(detail_search);
     });
+function detail_search(){
+    var minT=0, maxT=0, minW=0, maxW=0;
+    minT=parseInt($("#minTall").val()==''? 0:$("#minTall").val());
+    maxT=parseInt($("#maxTall").val()==''? 0:$("#maxTall").val());
+    minW=parseInt($("#minEyes").val()==''? 0:$("#minEyes").val());
+    maxW=parseInt($("#maxEyes").val()==''? 0:$("#maxEyes").val());
+    
+    $(".info").filter(function(){
+        var isShow = true;
+        if(minT != 0){ //상세검색에서 키를 입력했다면 minT변수는 0이 아니다
+            var T=parseInt($(this).find(".t").text().slice(3));
+            console.log(T);
+            //화면에 표시된 키는 cm단위를 가지고 있는 텍스트이기때문에 parseInt를 통해 앞쪽의 숫자만 걸러온다
+            if(minT > T || maxT < T)
+                isShow=false;
+            }
+                $(this).toggle(isShow);
+    });
+}
 function default_search(){
     var word = $("#word").val();
 
