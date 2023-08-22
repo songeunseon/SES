@@ -29,6 +29,7 @@
         .weather{
             width: 50px;
         }
+        
         #diary{
             width: 1000px;
             margin: 0 auto;
@@ -56,21 +57,20 @@
             border-top:  2px solid black;
             border-bottom:  2px solid black;
             height: 50px;
-           
         }
         #detail_diary tr:nth-child(even){
             background: #aaa;
             color: #fff;
-
         }
+        
     </style>
 </head>
 <body>
     <div id="day">
         <input class="diary_info" id="date" type="date" name="date">
-        <input class="weather" id="sunny" type="radio" name="weather" value="맑음">맑음
-        <input class="weather" id="cloudy" type="radio" name="weather" value="흐림">흐림
-        <input class="weather" id="thunder" type="radio" name="weather" value="천둥">천둥
+        <input class="weather" id="sunny" type="radio" name="weather" value="맑음"><label for="w1">맑음</label>
+        <input class="weather" id="cloudy" type="radio" name="weather" value="흐림"><label for="w2">흐림</label>
+        <input class="weather" id="thunder" type="radio" name="weather" value="천둥"><label for="w3">천둥</label>
     </div>
     <div id="diary">
         <table id="list">
@@ -88,26 +88,48 @@
 </body>
 </html>
 <script>
+$(function(){
     $.getJSON("./data/test4.json", function(data){
         $.each(data.diary,function(i,item){
+            // var color=item.날씨.indexOf("맑음")>-1?"blue": item.날씨.indexOf("흐림")>-1 ? "grey" : "yellow";
+            // var date = item.작성일.slice(0,4)+"-"+item.작성일.slice(4,6)+"-"+item.작성일.slice(6);
             $("#detail_diary").append(
-                "<tr>"+
-                "<td>"+item.작성일+"</td>"+
-                "<td>"+item.제목+"</td>"+
+                "<tr class='det'>"+
+                "<td class='dt'>"+item.작성일+"</td>"+
+                "<td class='tit'>"+item.제목+"</td>"+
                 "<td class='wtr'>"+item.날씨+"</td>"+
-                "<td>"+item.내용+"</td>"+
+                "<td class='diy'>"+item.내용+"</td>"+
                 "</tr>");
             
         })
         console.log(data.diary);
+    
     });
-    $(".weather").click(function(){
-        var wt = $(".weather").val()
-        $("#detail_diary>tr").filter(function(idx){
-            var w = $(this).find(".wtr").text().indexOf(wt)>-1;
-            console.log(w);
-        })
+    $("#date").change(search);
+    $("input[name=weather]").click(search);
+});
+function search(){
+    var date = $("#date").val().split("-").join("");
+
+    var wt = $("input[name=weather]:checked").val();
+
+    $(".det").filter(function(){
+        var classDate = $(this).children(".dt");
+        var hasDate = date==''?false:classDate.text().indexOf(date)>-1;
+        var classWeather = $(this).children(".wtr");
+        var hasWt = wt=='undefined'?true:classWeather.text().indexOf(wt)>-1;
+
+        $(this).toggle(hasDate || hasWt);
     })
+    console.log(wt);
+}
+    // $(".weather").click(function(){
+    //     var wt = $(".weather").val()
+    //     $("#detail_diary>tr").filter(function(idx){
+    //         var w = $(this).find(".wtr").text().indexOf(wt)>-1;
+    //         console.log(w);
+    //     })
+    // })
 
 
 
