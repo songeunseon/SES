@@ -14,6 +14,7 @@ $(function(){
                         break;
                     }
                 }
+                var eyes=item.시력.split(",");
                 $("#list_wrap").append(
                     "<div class='info'>"+
                     "<ul class='bt'>"+
@@ -21,7 +22,7 @@ $(function(){
                     "<li class='ban'>"+item.반+"반</li>"+
                     "<li class='myteacher'>담임 : "+담임+"</li>"+
                     "<li class='t'>키 : "+item.키+"cm</li>"+
-                    "<li class='e'>시력 : 좌"+item.시력.slice(0,3)+" 우"+item.시력.slice(4)+"</li>"+
+                    "<li class='e'>시력 : 좌"+eyes[0]+" 우"+eyes[1]+"</li>"+
                     "<li class='w'>몸무게 : "+item.몸무게+"kg</li>"+
                     "</ul></div>"
                     );
@@ -36,11 +37,11 @@ $(function(){
         $("#cls").change(detail_search);
     });
 function detail_search(){
-    var minT=0, maxT=0, minW=0, maxW=0;
+    var minT=0, maxT=0, minE=0, maxE=0;
     minT=parseInt($("#minTall").val()==''? 0:$("#minTall").val());
     maxT=parseInt($("#maxTall").val()==''? 0:$("#maxTall").val());
-    minW=parseInt($("#minEyes").val()==''? 0:$("#minEyes").val());
-    maxW=parseInt($("#maxEyes").val()==''? 0:$("#maxEyes").val());
+    minE=parseInt($("#minEyes").val()==''? 0:$("#minEyes").val());
+    maxE=parseInt($("#maxEyes").val()==''? 0:$("#maxEyes").val());
     
     $(".info").filter(function(){
         var isShow = true;
@@ -51,8 +52,18 @@ function detail_search(){
             if(minT > T || maxT < T)
                 isShow=false;
             }
-                $(this).toggle(isShow);
-    });
+            // $(this).toggle(isShow);
+        var isSee = true;
+        if (minE != 0) {
+            var E = parseFloat($(this).find(".e").text().split("우"));
+            console.log(E);
+            // var ER = $(this).find(".e").text().indexOf().slice(11);
+            // if (minE > EL > maxE || minE > ER >maxE)
+            isSee = false;
+    }
+    $(this).toggle(isShow || isSee);
+
+});
 }
 function default_search(){
     var word = $("#word").val();
