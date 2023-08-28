@@ -33,7 +33,11 @@ function draw(){
 //보드 그리기
     var gidx=Object.values(gamer);
     $.each(gidx,function(i,p){
-        // $(".pan").eq(0).append("<svg><circle cx='75' cy='75' r='20' fill='"+gidx[i]+"'/></svg>")
+        $(".pan").eq(0).append("<svg width='100' height='100' viewBox='0 0 100 100'><circle cx='80' cy='80' r='10' fill='"+gcolor[0]+"'/></svg>")
+        $(".pan").eq(1).append("<svg width='100' height='100' viewBox='0 0 100 100'><circle cx='80' cy='80' r='10' fill='"+gcolor[1]+"'/></svg>")
+        $(".pan").eq(2).append("<svg width='100' height='100' viewBox='0 0 100 100'><circle cx='80' cy='80' r='10' fill='"+gcolor[2]+"'/></svg>")
+        $(".pan").eq(3).append("<svg width='100' height='100' viewBox='0 0 100 100'><circle cx='80' cy='80' r='10' fill='"+gcolor[3]+"'/></svg>")
+        $(".pan").eq(4).append("<svg width='100' height='100' viewBox='0 0 100 100'><circle cx='80' cy='80' r='10' fill='"+gcolor[4]+"'/></svg>")
 
     });
 }
