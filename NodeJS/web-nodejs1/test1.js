@@ -11,6 +11,7 @@
 //그냥 3000써!!!!!!!!!!!!!!
 //nodejs 서버 소스 파일에 내용이 변경되면 반드시 서버를 중단하고 다시 실행한다.
 //중단은 vscode에서는 터미널을 클릭하고 ctrl+c 하면 된다.
+//루트 도메인 (루트url) - http://localhost:3000
 
 var http = require('http');
 var fs = require('fs'); //파일을 읽어오기위한 node.js에서의 객체

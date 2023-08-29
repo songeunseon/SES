@@ -11,52 +11,66 @@ page 구성 - 메인 , 회원가입 , 문의
 */
 
 var http = require('http');
-var fs = require('fs'); //파일을 읽어오기위한 node.js에서의 객체
-var url = require('url');
+var fs = require('fs');
+var tempUrl = require('url');
+var cookie = require('cookie');
 
-var app = http.createServer(function(request,response){
-    var _url = request.url; //주소바꿔서 보여지게끔
-    var query = url.parse(_url,true).query;
+const data = JSON.parse(fs.readFileSync('./data/member.json','utf8'));
+// console.log(data);
+
+    var app = http.createServer(function(request,response){
+    var _url = request.url;
+    var query = tempUrl.parse(_url,true).query;
+
     // console.log(query.part);
-    var title = query.part;
+    
+    if(query.part == undefined){
     if(request.url=='/'){
-        title='HOMEPAGE';
-        _url='/index.html';
+        _url='/src/index.html';
     }
     if(request.url=='/sign'){
-        _url='/signup.html'; //여기에 들어가는것이 페이지에 보여진다 
+        _url='/src/signup.html'; 
     }
     if(request.url=='/qs'){
-        _url='/question.html'; //여기에 들어가는것이 페이지에 보여진다 
+        _url='/src/question.html';
+    }
+    if(request.url=='/login'){
+        _url='/src/login.html';
+    }
+    response.writeHead(200);
+    }else{
+        var page = query.part;
+        var isLogin = 'false';
+        var id='';
+        if(page==='login_check'){
+            for(var i in data){
+                if(data[i].sdmId===query.sdmId && data[i].sdmPw===query.sdmPw){
+                    isLogin='true';
+                    id=query.sdmId;
+                    //아이디,비밀번호 일치하면 쿠키생성
+                    break;
+                }
+            }
+            _url='/src/'+page+'.html';
+        }
+        response.writeHead(200,{
+            'Set-Cookie':['isLogin='+isLogin, 'id='+id]
+        });
     }
     if(request.url =='/favicon.ico'){
         return response.writeHead(404);
     }
-    response.writeHead(200);
-    fs.readFile(`./${query.part}`,'utf8',function(err,desct) { //내용 바꿔서 보여지게끔 //desct 가 undefined라면 
-        if(desct==undefined) desct=`          
-        <div>
-        <div>안녕하세요</div>
-        <div>메인입니다</div>
-        </div>`;
 
-    var tmp = `
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-    </head>
-    <body>
-        <a href="?part=sign">회원가입</a>
-        <a href="?part=qs">Q&A</a>
-        
-        <h1>${title}</h1>
-        <p>${desct}</p>
-    </body>
-    </html>`;
-    response.end(tmp);
-    });
+    //--------------저장되어있는 쿠키를 가지고 오는 방법-----------------
+    // // console.log(request.headers.cookie); 
+    // var cookies = {};
+    // cookies= cookie.parse(request.headers.cookie); //내 컴퓨터에 있는 쿠키전체를 가져와 객체로 저장
+    // // console.log(cookies.id);
+    
+    response.end(fs.readFileSync(__dirname+_url));
+    // response.writeHead(200,{
+    //     'Set-Cookie':['id=sky','pw=1234'] //쿠키만드는법
+    // });
+    // response.end('aa');
 });
 app.listen(3000);

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script>
+        function getCookie(name){
+            var cookies = document.cookie.split(";");
+            for(var i in cookies){
+                var cookie = cookies[i].trim();
+                if(cookie.startsWith(name+"=")){
+                    return cookie.substring(name.length+1, cookie.length);
+                }
+            }
+            return '';
+        }
+        var isLogin = getCookie("isLogin");
+        var id= getCookie("id");
+
+        document.write(isLogin+ " "+id);
+        // parse=function(href){ //url이라는 객체의 protortpe에 등록
+        //     var tmp = href.split("?")[1];
+        //     var obj = new Object();
+        //     $.each(tmp.split("&"),function(i,t){ //파라미터를 객체형태로 저장
+        //         var param = t.split("=");
+        //         obj[param[0]]= param[1];
+        //     });
+        //     console.log(obj);
+        //     return obj;
+        // }
+
+        // //주소에 보면 가끔 %3423%2345%235646 이렇게 표시되는 경우
+        // //특수문자를 주소에서 사용 할 수 없기때문에 사용가능한 문자로 변환한다
+        // //그 과정이 encode이다 다시 원래 특수 문자로 변환하려면 decode 해야한다.
+        // $.getJSON("./data/member.json",function(member){
+        //     var href = decodeURIComponent(location.href);
+        //     var query = parse(href);
+            
+        //     var isSuccess = false;
+        //     $.each(member, function(i,m){
+        //         if(m.sdmId === query.sdmId){
+        //             if(m.sdmPw === query.sdmPw){
+        //                 isSuccess=true;
+        //             }
+        //         }
+        //     });
+        //     if(isSuccess)document.write("로그인성공");
+        //     else document.write("로그인실패");
+        //     console.log(member);
+        // })
+    </script>
+</head>
+<body>
+    <h3>로그인 처리하는 페이지</h3>
+</body>
+</html>
