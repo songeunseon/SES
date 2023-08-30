@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
-    <script>
-        function getCookie(name){
-            var cookies = document.cookie.split(";");
-            for(var i in cookies){
-                var cookie = cookies[i].trim();
-                if(cookie.startsWith(name+"=")){
-                    return cookie.substring(name.length+1, cookie.length);
-                }
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+        <script src="./src/func.js"></script>
+        <script>
+            $(function(){
+            var isLogin = getCookie("isLogin");
+            var id= getCookie("id");
+            if(isLogin=="false"){
+                $("#login_result").append('<h2>로그인실패</h2>'+
+                '<a href="/login">다시 로그인하기</a>');
+            }else{
+                $("#login_result").append('<h2>로그인 성공</h2>');
+                setTimeout(function(){ //로그인성공하면 3초뒤에 첫페이지로 이동
+                    location.href="/";
+                },3000);
             }
-            return '';
-        }
-        var isLogin = getCookie("isLogin");
-        var id= getCookie("id");
-
-        document.write(isLogin+ " "+id);
-        // parse=function(href){ //url이라는 객체의 protortpe에 등록
+        });
+            // document.write(isLogin+ " "+id);
+            // parse=function(href){ //url이라는 객체의 protortpe에 등록
         //     var tmp = href.split("?")[1];
         //     var obj = new Object();
         //     $.each(tmp.split("&"),function(i,t){ //파라미터를 객체형태로 저장
@@ -50,9 +51,33 @@
         //     else document.write("로그인실패");
         //     console.log(member);
         // })
-    </script>
+        </script>
+    <style>
+        body{
+            background: #aaa;
+            height: 100vh;
+        }
+        #login_result{
+            width: 500px;
+            position: relative;
+            left: 50%; top:50%;
+            color: #fff;
+            text-align: center;
+            transform: translate(-50%,-50%);
+        }
+        #login_result h2{
+            font-size: 30px;
+            font-weight: 800;
+        }
+        #login_result a{
+            color: #fff;
+        }
+    </style>
+        
 </head>
 <body>
-    <h3>로그인 처리하는 페이지</h3>
+    <div id="login_result">
+
+    </div>
 </body>
 </html>

@@ -53,6 +53,9 @@ const data = JSON.parse(fs.readFileSync('./data/member.json','utf8'));
             }
             _url='/src/'+page+'.html';
         }
+        if(page==='logout'){
+            _url='/src/index.html';
+        }
         response.writeHead(200,{
             'Set-Cookie':['isLogin='+isLogin, 'id='+id]
         });

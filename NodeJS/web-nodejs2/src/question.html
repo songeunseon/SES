@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>스드메의모든것</title>
-
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="./src/main.css">
-
+<link rel="stylesheet" href="./src/question.css">
+<script src="./src/question.js"></script>
+<script src="./src/func.js"></script>
 </head>
 <body>
     <div id="wrap">
@@ -14,24 +16,59 @@
             <div class="logo"><a href="/"><img src="./src/ring.png"></a> </div>
             <nav class="nav">
                 <ul class="menuList">
-                    <li class="menu"><a href="/studio"></a>스튜디오</li>
-                    <li class="menu"><a href="/dress"></a>드레스</li>
-                    <li class="menu"><a href="/makeup"></a>메이크업</li>
-                    <li class="menu"><a href="/wedding"></a>예식장</li>
-                    <li class="menu"><a href="/qs"></a>Q&A</li>
+                    <li class="menu"><a href="/studio">스튜디오</a></li>
+                    <li class="menu"><a href="/dress">드레스</a></li>
+                    <li class="menu"><a href="/makeup">메이크업</a></li>
+                    <li class="menu"><a href="/wedding">예식장</a></li>
+                    <li class="menu"><a href="/qs">Q&A</a></li>
                 </ul>
             </nav>
         </header>
         <main id="main">
             <section id="content">
-                <img src="./src/s.png">
-            </section>
-            <section id="side">
-                <div class="login_bt">
-                    <a href="/login">로그인</a>
+                <div id="qsList">
+                    <div class="qsTitle">
+                        <h2>문의</h2>
+                        <a href="javascript:questionWrite();">문의하기</a>
+                    </div>
+                    <div class="search_wrap">
+                        <input type="text" name="word" id="word" placeholder="검색어를 입력하세요">
+                    </div>
+                    <div class="qsList_box">
+                        <table>
+                            <thead>
+                                <th class="a">번호</th>
+                                <th class="b">제목</th>
+                                <th class="c">작성자</th>
+                                <th class="d">작성일</th>
+                                <th class="e">답변</th>
+                            </thead>
+                            <tbody id="qs"></tbody>
+                        </table>
+                    </div>
                 </div>
             </section>
+            <section id="side">
+                
+            </section>
         </main>
+    </div>
+    <div id="qsModal" style="display: none;">
+        <div class="modalBackground"></div>
+        <div class="qsInputBox">
+            <h3>문의글 작성</h3>
+            <div class="qsInput">
+                <input type="text" name="title" id="title">
+                <label for="title">제목</label>
+            </div>
+            <div class="qsInput">
+                <textarea name="qsContent" id="qsContent"></textarea>
+                <label for="qsContent">문의내용</label>
+            </div>
+            <div class="qsRegBt">
+                <a href="javascript:qsSave();">완료</a>
+            </div>
+        </div>
     </div>
 </body>
 </html>
