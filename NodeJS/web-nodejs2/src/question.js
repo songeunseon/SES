@@ -53,6 +53,9 @@ function questionWrite(){
         var isOK = confirm("로그인 후 문의하기 를 작성할수 있습니다 \n로그인 하시겠습니까?");
         if(isOK){
             location.href='/login';
+            if(page==='login'){
+                _url='/src/question.html';
+            }
         }
     }
 }
