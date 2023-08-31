@@ -11,7 +11,6 @@ module.exports = {
                 "<td class='qsAns e'>"+(q.to==0? '미답변' : '답변완료')+"</td>"+
                 "</tr>";
         }
-
         var qsHTML=`
         <section id="content">
                 <div id="qsList">
