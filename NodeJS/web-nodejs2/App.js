@@ -21,10 +21,10 @@ const data = JSON.parse(fs.readFileSync('./data/member.json','utf8'));
     var app = http.createServer(function(request,response){
     var _url = request.url;
     var query = tempUrl.parse(_url,true).query;
-
+        // console.log(Object.keys(query).length==0); //배열로 만들어 길이를 확인한다
     // console.log(query.part);
     
-    if(query.part == undefined){
+    if(Object.keys(query).length==0){
     if(request.url=='/'){
         _url='/src/index.html';
     }
@@ -38,26 +38,36 @@ const data = JSON.parse(fs.readFileSync('./data/member.json','utf8'));
         _url='/src/login.html';
     }
     response.writeHead(200);
-    }else{
-        var page = query.part;
-        var isLogin = 'false';
-        var id='';
+    }else{  //쿼리스트링이 있는경우 동작하는 부분
+        var page = query.part == undefined ? '' : query.part ;
+        var sub = query.sub == undefined ? '' : query.sub ;
+        // var isLogin = 'false';
+        // var id='';
+        var cookie_arr = [];
+        if(sub === 'question'){
+            cookie_arr=['sub=qs'];
+            _url='/src/login.html';
+        }
         if(page==='login_check'){
+            cookie_arr = ['isLogin=false', 'id=""'];
             for(var i in data){
                 if(data[i].sdmId===query.sdmId && data[i].sdmPw===query.sdmPw){
-                    isLogin='true';
-                    id=query.sdmId;
+                    // isLogin='true';
+                    // id=query.sdmId;
                     //아이디,비밀번호 일치하면 쿠키생성
+                    cookie_arr = ['isLogin=true', 'id='+query.sdmId];
                     break;
                 }
             }
             _url='/src/'+page+'.html';
         }
         if(page==='logout'){
+            cookie_arr=['isLogin=false'];
             _url='/src/index.html';
         }
+        
         response.writeHead(200,{
-            'Set-Cookie':['isLogin='+isLogin, 'id='+id]
+            'Set-Cookie':cookie_arr
         });
     }
     if(request.url =='/favicon.ico'){

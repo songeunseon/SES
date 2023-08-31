@@ -16,7 +16,9 @@
             }else{
                 $("#login_result").append('<h2>로그인 성공</h2>');
                 setTimeout(function(){ //로그인성공하면 3초뒤에 첫페이지로 이동
-                    location.href="/";
+                    location.href="/"+getCookie('sub');
+                    document.cookie="sub=; expires=Thu, 01 Jan 1970 00:00:01 GMT;" ;
+                    //sub를 비워주거나 날짜를 과거로 돌려버리기 -쿠키비우는방법-
                 },3000);
             }
         });

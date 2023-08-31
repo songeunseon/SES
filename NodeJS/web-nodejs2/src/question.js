@@ -46,16 +46,14 @@ function search(){
         $(this).toggle(w||t);
     });
 }
-function questionWrite(){
+function questionWrite(){ //문의하기 버튼 클릭시 실행되는 함수
     if(isLogin){ //로그인 성공
         $("#qsModal").show();
     }else{//로그인 안한상태
         var isOK = confirm("로그인 후 문의하기 를 작성할수 있습니다 \n로그인 하시겠습니까?");
         if(isOK){
-            location.href='/login';
-            if(page==='login'){
-                _url='/src/question.html';
-            }
+            location.href='/?sub=question'; //다른페이지를 방문한 상태에서 로그인페이지를 갔다오겠다 
+            
         }
     }
 }
