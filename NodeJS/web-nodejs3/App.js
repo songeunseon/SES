@@ -38,6 +38,17 @@ const app = http.createServer(function(request,response){
             response.end();
         })
     }
+    if(path === '/qs'){
+        fs.readFile('./lib/page.json','utf8',function(err,data){
+            const dataParse = JSON.parse(data);
+            var qdata = JSON.parse(fs.readFileSync('./lib/question.json','utf8'));
+            const html = template.questionHTML(dataParse.main,dataParse.login_before,qdata);
+
+            response.writeHead(200);
+            response.write(html);
+            response.end();
+        })
+    }
     if(path.indexOf('.css')>-1){
         var css_name = path.slice('/lib/'.length);
         fs.readFile('./lib/'+css_name,function(err,data){

@@ -1,0 +1,10 @@
+[
+    {"id":1,"sdmId":"ses@gmail.com", "sdmPw":"ses@12", "tel":"010-2222-0560","addr":"대전 중구 태평동","wDate":"2020-10-24"},
+    {"id":2,"sdmId":"hsh@naver.com", "sdmPw":"hsh#23", "tel":"010-3963-4466","addr":"대전 서구 내동","wDate":"2020-10-24"},
+    {"id":3,"sdmId":"sss@daum.net", "sdmPw":"sss!34", "tel":"010-6584-8168","addr":"대전 서구 변동","wDate":"2030-01-14"},
+    {"id":4,"sdmId":"ksh@nate.com", "sdmPw":"ksh4@5", "tel":"010-5841-3621","addr":"대전 동구 판암동","wDate":"2030-02-07"},
+    {"id":5,"sdmId":"jyr@gmail.com", "sdmPw":"jyr#56", "tel":"010-5225-4244","addr":"대전 대덕구 중리동","wDate":"2029-09-08"},
+    {"id":6,"sdmId":"jkr@naver.com", "sdmPw":"jkr!67", "tel":"010-1234-4567","addr":"대전 대덕구 중리동","wDate":"2018-10-27"},
+    {"id":7,"sdmId":"lmj@daum.net", "sdmPw":"lmj@78", "tel":"010-4321-9874","addr":"대전 서구 정림동","wDate":"2028-03-13"},
+    {"id":8,"sdmId":"ksk@nate.com", "sdmPw":"ksk#89", "tel":"010-5432-8521","addr":"대전 동구 가양동","wDate":"2028-06-08"}
+]

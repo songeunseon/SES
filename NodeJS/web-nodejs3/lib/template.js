@@ -1,4 +1,49 @@
 module.exports = {
+    questionHTML:function(main,login,qsData){
+        var tag ='';
+        for(var q of qsData){
+            tag +=
+                "<tr class='qstr'>"+
+                "<td class='qsNum a'>"+q.id+"</td>"+
+                "<td class='qsTit b'>"+q.title+"</td>"+
+                "<td class='qsWri c'>"+q.writer+"</td>"+
+                "<td class='qsDate d'>"+q.date+"</td>"+
+                "<td class='qsAns e'>"+(q.to==0? '미답변' : '답변완료')+"</td>"+
+                "</tr>";
+        }
+
+        var qsHTML=`
+        <section id="content">
+                <div id="qsList">
+                    <div class="qsTitle">
+                        <h2>문의</h2>
+                        <a href="javascript:questionWrite();">문의하기</a>
+                    </div>
+                    <div class="search_wrap">
+                        <input type="text" name="word" id="word" placeholder="검색어를 입력하세요">
+                    </div>
+                    <div class="qsList_box">
+                        <table>
+                            <thead>
+                                <th class="a">번호</th>
+                                <th class="b">제목</th>
+                                <th class="c">작성자</th>
+                                <th class="d">작성일</th>
+                                <th class="e">답변</th>
+                            </thead>
+                            <tbody id="qs">${tag}</tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+            <section id="side">
+                <div class="login_bt">
+                    <a href="/${login.url}">${login.text}</a>
+                </div>
+            </section>
+        `;
+        return (commonHTML(main,qsHTML,"question"));
+    },
     homeHTML:function(main,login){
         var mainHTML=`
         <section id="content">
