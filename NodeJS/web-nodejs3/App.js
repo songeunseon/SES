@@ -2,6 +2,9 @@ const http=require('http');
 const fs = require('fs');
 const url = require('url');
 const template = require('./lib/template.js');
+const JStemp = require('./lib/JStemplate.js');
+const member = JSON.parse(fs.readFileSync('./lib/member.json','utf8'));
+let cookie_arr=[];
 
 const app = http.createServer(function(request,response){
     const pageURL=request.url;
@@ -11,9 +14,22 @@ const app = http.createServer(function(request,response){
     if(path === "/"){
         fs.readFile('./lib/page.json','utf8',function(err,data){
             const dataParse = JSON.parse(data);
-            const html = template.homeHTML(dataParse.main, dataParse.login_before);
+            var html='';
+        if(query.sdmId == undefined)
+            html = template.homeHTML(dataParse.main, dataParse.login_before);
+        else{ //파라미터에 id가 있다면
+            for(var m of member){
+                if(m.sdmId==query.sdmId && m.sdmPw==query.sdmPw){
+                    cookie_arr=['isLogin=true','id='+query.sdmId];
+                    dataParse.login_after.id=query.sdmId;
+                    break;
+                }
+            }
+            html = template.homeHTML(dataParse.main,dataParse.login_after);
+        }
 
-            response.writeHead(200);
+            response.writeHead(200, 
+                {'Set-Cookie': cookie_arr});
             response.write(html);
             response.end();
         })
@@ -21,7 +37,8 @@ const app = http.createServer(function(request,response){
     if(path === '/login'){
         fs.readFile('./lib/page.json','utf8',function(err,data){
             const dataParse = JSON.parse(data);
-            const html = template.loginHTML(dataParse.main);
+            var html = template.loginHTML(dataParse.main);
+            html += JStemp.login();
 
             response.writeHead(200);
             response.write(html);

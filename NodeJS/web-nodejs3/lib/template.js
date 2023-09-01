@@ -50,6 +50,7 @@ module.exports = {
         </section>
         <section id="side">
             <div class="login_bt">
+                ${login.url=='logout'? `<p>${login.id}</p>`:''}
                 <a href="/${login.url}">${login.text}</a>
             </div>
         </section>`;
@@ -112,7 +113,7 @@ function commonHTML(main,html,css){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>스드메의모든것</title>
-    
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./lib/main.css">
     <link rel="stylesheet" href="./lib/${css}.css">
 
