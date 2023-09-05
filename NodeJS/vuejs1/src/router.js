@@ -19,6 +19,16 @@ const routes=[
         path:'/qs',
         name:'/SdmQs',
         component:()=> import('@/components/SdmQs.vue')
+    },
+    {
+        path:'/dress',
+        name:'/SdmDress',
+        component:()=> import('@/components/SdmDress.vue')
+    },
+    {
+        path:'/MakeUp',
+        name:'/SdmMakeUp',
+        component:()=> import('@/components/SdmMakeUp.vue')
     }
 ];
 
