@@ -25,7 +25,7 @@ import TopMenu from './components/TopMenu.vue'
   <RouterView />
 </template>
 
-<style scoped>
+<style>
   *{
     padding: 0;
     margin: 0;
@@ -38,13 +38,14 @@ import TopMenu from './components/TopMenu.vue'
   header{
     width: 100%;
     position: relative;
+    border-bottom: 1px solid #ddd;
   }
   #header_wrap{
     width: 1200px;
-    margin: 25px auto;
+    margin: 0 auto;
     display: flex;
     align-items: center;
-    padding: 30px 0;
+    padding: 50px 0 25px 0;
   }
   #header_wrap .logo{
     width: 200px;
