@@ -3,6 +3,7 @@
         msg:{type:String,required:true},
         info:{type:Array,required:true}
     })
+    //Props type 종류 : String, Number, Array, Object, Boolean, Date, Function
 </script>
 <template>
     <div class="slide">
