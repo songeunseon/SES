@@ -22,7 +22,7 @@
         },
         setup(){
             const todos = ref([])
-            const {loadTodos, saveTodos, storage_id} = useStorage()
+            const {loadTodos, saveTodos, Storage_id} = useStorage()
             provide('todos',readonly(todos))
             
             const initTodos = (init_todos) => {
@@ -30,7 +30,7 @@
             }
             const addTodo = (job, date) => { //새로운 할일 등록
                 todos.value.push({
-                    id: storage_id.value++,
+                    id: Storage_id.value++,
                     job: job,
                     date: date,
                     complated: false,
