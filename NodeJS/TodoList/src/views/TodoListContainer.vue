@@ -1,6 +1,6 @@
 
 
-<template>
+<template> <!--TodoListContainer가 상위 컴포넌트이고 하위 컴포넌트로 TodoListNew,-->
     <TodoListNew/>
     <section class="container">
         <div class="row justify-content-center m-2">
@@ -10,7 +10,7 @@
 </template>
 
 <script>
-    import {ref,readonly,provide}from 'vue'
+    import {ref,readonly,provide}from 'vue' //하위 컴포넌트에 주입하기위한 provide
     import {useStorage} from '../stores/storage'
     import TodoListMain from '../components/TodoListMain.vue'
     import TodoListNew from '../components/TodoListNew.vue'
@@ -21,16 +21,16 @@
             TodoListNew,TodoListMain
         },
         setup(){
-            const todos = ref([])
-            const {loadTodos, saveTodos, Storage_id} = useStorage()
-            provide('todos',readonly(todos))
+            const todos = ref([]) //기본 값 참조 [] 이값으로 참조
+            const {loadTodos, saveTodos, storage_id} = useStorage() //로컬 스토리지로 저장 불러오기 위해 useStorage
+            provide('todos',readonly(todos)) //todos에 있는값 읽기전
             
             const initTodos = (init_todos) => {
                 todos.value = init_todos
             }
             const addTodo = (job, date) => { //새로운 할일 등록
                 todos.value.push({
-                    id: Storage_id.value++,
+                    id: storage_id.value++,
                     job: job,
                     date: date,
                     complated: false,

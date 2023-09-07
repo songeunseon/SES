@@ -6,8 +6,8 @@ import { createPinia } from 'pinia'
 import App from './App.vue'
 import router from './router'
 
-import 'bootstrap/dist/css/bootstrap.min.css'
-import 'bootstrap/dist/js/bootstrap.esm.min.js'
+import 'bootstrap/dist/css/bootstrap.min.css'  //부트스트랩 style사용하기 위해 가져오기
+import 'bootstrap/dist/js/bootstrap.esm.min.js' //부트스트랩 가져오기
 
 const app = createApp(App)
 //날짜

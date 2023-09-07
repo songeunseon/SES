@@ -1,4 +1,8 @@
 <template>
+    <!--할일 새롭게 작성하는 컴포넌트
+    첫번째 input에 v-model명칭을 job이라고 세팅하면 vla-obj객체의 job에 저장된다
+    두번째 input에 v-model명칭을 
+    -->
     <section class="mb-5">
         <div class="container">
             <div class="row justify-content-center m-2">

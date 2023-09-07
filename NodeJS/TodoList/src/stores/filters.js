@@ -9,23 +9,28 @@ export const useFilter = () => {
         else if(a_date < b_date) return 0
         else return a.id-b.id
     }
-    const getPendingTodos = (todos) => {
+    const getPendingTodos = (todos) => { //미루어진 할일
         return todos.value.filter((todo)=>todo.date <today && !todo.complated)
         .slice().sort(fnSort)
+        //오늘 날짜와 비교하여 날짜가 지났고 완료되지 않은 일 filter로 찾기
     }
-    const getActiveToday = (todos) => {
+    const getActiveToday = (todos) => { //앞으로 해야 될 할일
         return todos.value.filter((todo)=>todo.date==today && !todo.complated)
         .slice().sort(fnSort)
+        //오늘 날짜와 같고 완료되지않은 일 filter
     }
-    const getComplatedToday = (todos) => {
+    const getComplatedToday = (todos) => { //완료 된 할일
         return todos.value.filter((todo)=>todo.date==today && todo.complated)
         .slice().sort(fnSort)
+        //오늘 날짜와 같고 완료 된일 
     }
-    const getAllTodayTodo = (todos) => {
+    const getAllTodayTodo = (todos) => { //오늘의 모든 할일
         return getActiveToday(todos).concat(getComplatedToday(todos)).slice().sort(fnSort)
+        //오늘 날짜에 해당하는 모든 할일 (해야될일, 완료된 일)
     }
-    const getAllTodo = (todos) => {
+    const getAllTodo = (todos) => { //모든 할일
         return todos.value.slice().sort(fnSort)
+        //지금까지 등록한 모든 할일
     }
     return {
         getPendingTodos, getActiveToday, getComplatedToday, getAllTodayTodo, getAllTodo

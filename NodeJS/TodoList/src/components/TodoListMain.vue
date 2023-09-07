@@ -25,7 +25,7 @@ export default{
         TodoList, TodoListMenu
     },
     setup(props){
-        const {getPendingTodos, getActiveToday, getCompletedToday, getAllTodayTodo, getAllTodo} =useFilter()
+        const {getPendingTodos, getActiveToday, getComplatedToday, getAllTodayTodo, getAllTodo} =useFilter()
         const filter =ref(0)
         const filter_todos = ref(0)
         const pending_todos = ref([])
@@ -40,7 +40,7 @@ export default{
             },
             1:{
                 str:'미션완료',
-                func:getCompletedToday,
+                func:getComplatedToday,
                 category:false,
             },
             2:{
@@ -75,7 +75,7 @@ export default{
                 use_category.value = filters[new_filter].category
                 }
             },
-            {immediate: true} //처음시작시에도 동작하게 하려면 이값을 넣어줘야한다.
+            {immediate: true, deep:true} //처음시작시에도 동작하게 하려면 이값을 넣어줘야한다.
         )
         return {filter, pending_todos, filter_todos, use_category, onChangeFilter}
     }
